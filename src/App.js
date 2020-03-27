@@ -20,6 +20,12 @@ class App extends React.Component {
       .catch(error => {
         console.log("error", error)
       })
+
+    fetch(`http://localhost:3000/plants`)
+      .then( r => r.json() )
+      .then( data => {
+        console.log("my plants!", data)
+      })
   }
   render () {
     return (
