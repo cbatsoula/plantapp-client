@@ -21,12 +21,19 @@ class App extends React.Component {
         console.log("error", error)
       })
 
-    fetch(`http://localhost:3000/plants`)
+    fetch(`http://localhost:3000/plants`,
+        {   method:'GET',
+            mode: 'cors',
+            headers:{
+                'Access-Control-Allow-Origin':'*'
+            },
+        })
       .then( r => r.json() )
       .then( data => {
         console.log("my plants!", data)
       })
   }
+  
   render () {
     return (
       <div className="App">
