@@ -33,14 +33,19 @@ class App extends React.Component {
         console.log("my plants!", data)
       })
   }
-  
+
   render () {
     return (
+      <>
+      <div className="Sidebar">
+      </div>
       <div className="App">
         <header className="App-header">
 
         </header>
+
       </div>
+      </>
     );
   }
 
