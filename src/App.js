@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
 import Sidebar from './Sidebar.js';
-
+import PlantCollection from './PlantCollection.js';
 
 class App extends React.Component {
 
   state = {
-    term: "sage" //snake case for spaces fyi
+    term: "sage", //snake case for spaces fyi
+    plantdata: {},
   }
 
   componentDidMount () {
@@ -16,6 +17,9 @@ class App extends React.Component {
       .then( r => r.json())
       .then( data => {
         console.log("where are you", data)
+        this.setState({
+          plantdata: data
+        })
       })
       .catch(error => {
         console.log("error", error)
@@ -35,11 +39,12 @@ class App extends React.Component {
   }
 
   render () {
+    console.log("here it is", this.state.plantdata)
     return (
       <>
       <Sidebar />
       <div className="App">
-
+      <PlantCollection someData={this.state.plantdata}/>
       </div>
       </>
     );

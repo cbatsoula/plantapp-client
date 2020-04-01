@@ -51,9 +51,7 @@ handleSearchSubmit = (event) => {
           onClick={this.handleSearchSubmit}>Submit</button>
 
         </div>
-        <header className="Sidebar-Inner">
-
-        </header>
+        
       </div>
     );
   }
