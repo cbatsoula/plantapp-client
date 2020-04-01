@@ -19,6 +19,11 @@
   height: 100vh;
   width: 30vw;
   background-color: darkgreen;
+  padding: 25px;
+}
+
+.Sidebar-Search {
+/* flex & search bar is a little wild */
 }
 
 
