@@ -7,7 +7,7 @@ class App extends React.Component {
 
   state = {
     term: "sage", //snake case for spaces fyi
-    plantdata: {},
+    plantdata: null,
   }
 
   componentDidMount () {
@@ -42,8 +42,8 @@ class App extends React.Component {
     console.log("here it is", this.state.plantdata)
     return (
       <>
-      <Sidebar />
       <div className="App">
+      <Sidebar />
       {
         this.state.plantdata ? <PlantCollection someData={this.state.plantdata}/> : null
       }

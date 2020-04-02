@@ -17,13 +17,42 @@
 .Sidebar {
   display: flex;
   height: 100vh;
-  width: 30vw;
+  width: 15%;
   background-color: darkgreen;
   padding: 25px;
 }
 
 .Sidebar-Search {
 /* flex & search bar is a little wild */
+}
+
+.PlantCollection {
+  display: flex;
+  background-color: gray;
+  height: 100vh;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 10px;
+
+  margin: auto;
+  align-content: stretch;
+
+}
+
+.PlantCard {
+  display: flex;
+  height: 20vh;
+  width: 30vw;
+  border: 1px solid yellow;
+  background-color: pink;
+  color: black;
+
+  justify-items: space-evenly;
+  margin: 5px;
+  padding: 2%;
+  align-content: stretch;
 }
 
 
