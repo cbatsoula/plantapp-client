@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
+import PlantCard from './PlantCard.js'
 
 
 class PlantCollection extends React.Component {
 
   renderNames () {
-    // this.props.someData.map( el => {return <h1> el.common_name </h1>})
+    return this.props.someData.map( el => {
+      return <PlantCard plantInfo={el} />
+    })
   }
 
 
@@ -15,7 +18,11 @@ class PlantCollection extends React.Component {
     return (
       <div className="PlantCollection">
       {
+        this.props.someData
+        ?
         this.renderNames()
+        :
+        null
       }
       </div>
     );
