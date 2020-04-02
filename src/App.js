@@ -45,7 +45,11 @@ class App extends React.Component {
       <div className="App">
       <Sidebar />
       {
-        this.state.plantdata ? <PlantCollection someData={this.state.plantdata}/> : null
+        this.state.plantdata
+        ?
+        <PlantCollection someData={this.state.plantdata}/>
+        :
+        null
       }
 
       </div>
