@@ -11,6 +11,7 @@ class PlantCard extends React.Component {
     return (
       <div className="PlantCard">
       <h3>{this.props.plantInfo.common_name}</h3>
+      <h4>{this.props.plantInfo.scientific_name}</h4>
       </div>
     );
   }
