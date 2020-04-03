@@ -51,7 +51,11 @@ handleSearchSubmit = (event) => {
           onClick={this.handleSearchSubmit}>Submit</button>
 
         </div>
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 1bad3d71a79c8c2e4066f1de9d622cfe0d738a1c
       </div>
     );
   }

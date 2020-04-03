@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import Sidebar from './Sidebar.js';
+import PlantCollection from './PlantCollection.js';
 
 class App extends React.Component {
 
   state = {
-    term: "sage" //snake case for spaces fyi
+    term: "sage", //snake case for spaces fyi
+    plantdata: null,
   }
 
   componentDidMount () {
@@ -16,24 +17,43 @@ class App extends React.Component {
       .then( r => r.json())
       .then( data => {
         console.log("where are you", data)
+        this.setState({
+          plantdata: data
+        })
       })
       .catch(error => {
         console.log("error", error)
       })
 
-    fetch(`http://localhost:3000/plants`)
+    fetch(`http://localhost:3000/plants`,
+        {   method:'GET',
+            mode: 'cors',
+            headers:{
+                'Access-Control-Allow-Origin':'*'
+            },
+        })
       .then( r => r.json() )
       .then( data => {
         console.log("my plants!", data)
       })
   }
-  render () {
-    return (
-      <div className="App">
-        <header className="App-header">
 
-        </header>
+  render () {
+    console.log("here it is", this.state.plantdata)
+    return (
+      <>
+      <div className="App">
+      <Sidebar />
+      {
+        this.state.plantdata
+        ?
+        <PlantCollection someData={this.state.plantdata}/>
+        :
+        null
+      }
+
       </div>
+      </>
     );
   }
 
