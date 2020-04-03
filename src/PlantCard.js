@@ -7,10 +7,10 @@ class PlantCard extends React.Component {
 
 
   render () {
-    console.log("plant card", this.props.plantInfo)
+    // console.log("plant card", this.props.plantInfo)
     return (
       <div className="PlantCard">
-      <h3>{this.props.plantInfo.common_name}</h3>
+      <h3>{this.props.plantInfo.common_name ? this.props.plantInfo.common_name : null}</h3>
       <h4>{this.props.plantInfo.scientific_name}</h4>
       </div>
     );
