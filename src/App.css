@@ -64,6 +64,14 @@
   background-size: cover;
 }
 
+.PlantShow {
+  display: flex;
+  background-color: red;
+  height: 100%;
+  width: 70vw;
+  
+}
+
 
 /* @keyframes App-logo-spin {
   from {
