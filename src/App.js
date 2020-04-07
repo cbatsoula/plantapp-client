@@ -90,7 +90,9 @@ class App extends React.Component {
       {
         this.state.plantdata
         ?
-        <PlantCollection selectPlant={this.selectPlant} someData={this.state.plantdata}/>
+        <PlantCollection
+        selectPlant={this.selectPlant}
+        someData={this.state.plantdata}/>
         :
         null
       }
@@ -98,7 +100,8 @@ class App extends React.Component {
       {
         this.state.currentPlant
         ?
-        <PlantShow />
+        <PlantShow
+        currentPlant={this.state.currentPlant}/>
         :
         null
       }

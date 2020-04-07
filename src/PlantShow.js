@@ -8,11 +8,14 @@ class PlantShow extends React.Component {
   //maybe change layout, so that the detail show page of each plant will almost just be a panel, I think this would be a good way to browse the plants with images rather than even showing the image in a PlantCard maybe??!!!
 
   render () {
-
-
+    console.log("in plant show", this.props)
     return (
       <div className="PlantShow">
-        <h5> hello world </h5>
+        <h5> {this.props.currentPlant.common_name} </h5>
+        <h5> {this.props.currentPlant.scientific_name} </h5>
+        <h5> complete data? :{this.props.currentPlant.complete_data.toString()} </h5>
+
+
       </div>
     );
   }

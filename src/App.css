@@ -69,7 +69,7 @@
   background-color: red;
   height: 100%;
   width: 70vw;
-  
+  flex-wrap: wrap;
 }
 
 
