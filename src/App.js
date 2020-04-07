@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
+import PlantShow from './PlantShow.js';
 
 class App extends React.Component {
 
@@ -27,12 +28,15 @@ class App extends React.Component {
       })
   }
 
-  selectPlant = (propsId) => {
-    console.log("HELL YEAH", propsId)
+  selectPlant = (props) => {
+    console.log("HELL YEAH", props)
     console.log("why", this.state)
     // this.setState({
     //   currentBeach: selectedBeach
     // }, () => {this.props.history.push('/beach')})
+    this.setState({
+      currentPlant: props
+    }, () => {console.log("setState on selected plant!", this.state)})
 
   }
 
@@ -87,6 +91,14 @@ class App extends React.Component {
         this.state.plantdata
         ?
         <PlantCollection selectPlant={this.selectPlant} someData={this.state.plantdata}/>
+        :
+        null
+      }
+
+      {
+        this.state.currentPlant
+        ?
+        <PlantShow />
         :
         null
       }

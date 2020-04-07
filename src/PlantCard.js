@@ -3,7 +3,7 @@ import './App.css';
 
 
 class PlantCard extends React.Component {
-
+  //this might be better hoisted up into App so I can have all plant images and data before rendering the card and selecting the plant and then again calling a fetch to get the same data
   state = {
     thisPlantData: null,
     images: null,
@@ -52,7 +52,7 @@ class PlantCard extends React.Component {
     console.log("plant card", this.props)
 
     return (
-      <div className="PlantCard" onClick={() => {this.props.selectPlant(this.props.plantInfo.id)}}>
+      <div className="PlantCard" onClick={() => {this.props.selectPlant(this.props.plantInfo)}}>
 
       <h3>{this.props.plantInfo.common_name ? this.props.plantInfo.common_name : "no common name"}</h3>
       <h4>{this.props.plantInfo.scientific_name}</h4>
