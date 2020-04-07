@@ -29,8 +29,11 @@ class App extends React.Component {
 
 
     handleSearchChange = (event) => {
-    // console.log("typin'", event.target.value)
-    let fullTerm = (event.target.value.charAt(0).toUpperCase()) + (event.target.value.slice(1));
+    let fullTerm = (event.target.value);
+    console.log("fullTerm", fullTerm)
+
+    let newOne = fullTerm.split(' ').join('_')
+    console.log("newOne", newOne)
     this.setState({
       searchTerm: fullTerm
     })
