@@ -36,6 +36,17 @@ class PlantCard extends React.Component {
 
   }
 
+  //commented out from within PlantCard bc JSX
+  // <div className="PlantCardImage">
+  // {
+  //   this.state.images
+  //   ?
+  //   <img src={this.state.thisPlantData.images[0].url} width={300} ></img>
+  //   :
+  //   <h4> No image available </h4>
+  // }
+  // </div>
+
 
   render () {
     console.log("plant card", this.state)
@@ -45,16 +56,6 @@ class PlantCard extends React.Component {
 
       <h3>{this.props.plantInfo.common_name ? this.props.plantInfo.common_name : "no common name"}</h3>
       <h4>{this.props.plantInfo.scientific_name}</h4>
-
-        <div className="PlantCardImage">
-        {
-          this.state.images
-          ?
-          <img src={this.state.thisPlantData.images[0].url} width={300} ></img>
-          :
-          <h4> No image available </h4>
-        }
-        </div>
 
 
       </div>
