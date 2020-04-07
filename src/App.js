@@ -6,10 +6,11 @@ import PlantCollection from './PlantCollection.js';
 class App extends React.Component {
 
   state = {
-    term: "sage", //snake case for spaces fyi
     plantdata: null,
     searchTerm: "",
+    currentPlant: null,
   }
+
 
   componentDidMount () {
 
@@ -24,6 +25,15 @@ class App extends React.Component {
       .then( data => {
         console.log("my plants!", data)
       })
+  }
+
+  selectPlant = (propsId) => {
+    console.log("HELL YEAH", propsId)
+    console.log("why", this.state)
+    // this.setState({
+    //   currentBeach: selectedBeach
+    // }, () => {this.props.history.push('/beach')})
+
   }
 
 
@@ -65,18 +75,23 @@ class App extends React.Component {
   }
 
   render () {
-    console.log("here it is", this.state.plantdata)
+    console.log("here it is from APP", this.state)
     return (
       <>
       <div className="App">
-      <Sidebar handleSearchSubmit={this.handleSearchSubmit} handleSearchChange={this.handleSearchChange} searchTerm={this.state.searchTerm} />
+      <Sidebar
+      handleSearchSubmit={this.handleSearchSubmit}
+      handleSearchChange={this.handleSearchChange}
+      searchTerm={this.state.searchTerm} />
       {
         this.state.plantdata
         ?
-        <PlantCollection someData={this.state.plantdata}/>
+        <PlantCollection selectPlant={this.selectPlant} someData={this.state.plantdata}/>
         :
         null
       }
+
+
 
       </div>
       </>

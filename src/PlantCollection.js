@@ -7,7 +7,7 @@ class PlantCollection extends React.Component {
 
   renderNames () {
     return this.props.someData.map( el => {
-      return <PlantCard plantInfo={el} />
+      return <PlantCard selectPlant={this.props.selectPlant} plantInfo={el}  />
     })
   }
 
