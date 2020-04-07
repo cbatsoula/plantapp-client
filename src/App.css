@@ -1,6 +1,6 @@
 .App {
   display: flex;
-  background-color: grey
+  background-color: #a0b39a
 }
 
 .App-header {
@@ -28,7 +28,7 @@
 
 .PlantCollection {
   display: flex;
-  background-color: gray;
+  background-color: #d3e0ce;
   height: 100%;
   width: 70vw;
   flex-wrap: wrap;
@@ -46,7 +46,7 @@
   height: 30vh;
   width: 30vw;
   border: 1px solid yellow;
-  background-color: pink;
+  background-color: #ffeacc;
   color: black;
 
   margin: 15px;
@@ -66,8 +66,8 @@
 
 .PlantShow {
   display: flex;
-  background-color: red;
-  height: 100%;
+  background-color: darkgreen;
+  height: 10vh;
   width: 70vw;
   flex-wrap: wrap;
 }
