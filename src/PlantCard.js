@@ -11,23 +11,23 @@ class PlantCard extends React.Component {
 
   componentDidMount () {
 
-    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.plantInfo.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
-      .then( r => r.json())
-      .then( data => {
-        console.log("id fetch data response", data)
-        this.setState({
-          thisPlantData: data,
-        }, () => {this.images()})
-        // {console.log("from state data", this.state.thisPlantData.images[0])}
-      })
-  }
+  //   fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.plantInfo.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+  //     .then( r => r.json())
+  //     .then( data => {
+  //       console.log("id fetch data response", data)
+  //       this.setState({
+  //         thisPlantData: data,
+  //       }, () => {this.images()})
+  //       // {console.log("from state data", this.state.thisPlantData.images[0])}
+  //     })
+  // }
 
-  images () {
-    if (this.state.thisPlantData.images) {
-      this.setState({
-        images: this.state.thisPlantData.images
-      })
-    }
+  // images () {
+  //   if (this.state.thisPlantData.images) {
+  //     this.setState({
+  //       images: this.state.thisPlantData.images
+  //     })
+  //   }
     // if (this.state.thisPlantData.images) {
     //   return <img src={this.state.thisPlantData.images[0]}></img>
     // } else if (this.state.thisPlantData.images === false)

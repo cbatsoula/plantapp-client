@@ -70,6 +70,8 @@
   height: 10vh;
   width: 70vw;
   flex-wrap: wrap;
+  align-content: stretch;
+  flex-direction: row;
 }
 
 
