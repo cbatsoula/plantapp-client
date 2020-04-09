@@ -39,6 +39,7 @@
   margin: auto;
   align-content: stretch;
 
+  text-align: center;
 }
 
 .PlantCard {
@@ -51,13 +52,17 @@
 
   margin: 15px;
   padding: 2%;
-  align-content: stretch;
+  align-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  text-align: center;
+
 
 }
 
+.PlantCardDetails {
+  margin: 0 auto;
+  text-align: center;
+}
 
 .PlantCardImage {
   display: flex;
