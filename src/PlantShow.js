@@ -41,6 +41,27 @@ class PlantShow extends React.Component {
         <h5> {this.props.currentPlant.scientific_name} </h5>
         <h5> complete data? :{this.props.currentPlant.complete_data.toString()} </h5>
 
+        {
+          this.state.thisPlantData
+          ?
+          <>
+          <h5> class: {this.state.thisPlantData.class.name}</h5>
+          <h5> division: {this.state.thisPlantData.division.name}</h5>
+          <h5> family: {this.state.thisPlantData.family.common_name}, {this.state.thisPlantData.family.name}</h5>
+          <h5> order: {this.state.thisPlantData.order.name}</h5>
+
+          <h5> duration: {this.state.thisPlantData.duration}</h5>
+
+          <h3> flower: {this.state.thisPlantData.main_species.flower.color}</h3>
+          <h3> foliage: {this.state.thisPlantData.main_species.foliage.color},  {this.state.thisPlantData.main_species.foliage.porosity_summer}, {this.state.thisPlantData.main_species.foliage.texture}</h3>
+
+          <h3>growth: ph min {this.state.thisPlantData.main_species.growth.ph_minimum}, ph max {this.state.thisPlantData.main_species.growth.ph_maximum}</h3>
+
+          </>
+          :
+          null
+        }
+
 
       </div>
     );
