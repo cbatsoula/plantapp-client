@@ -54,7 +54,10 @@
   align-content: stretch;
   flex-direction: row;
   flex-wrap: wrap;
+  text-align: center;
+
 }
+
 
 .PlantCardImage {
   display: flex;
