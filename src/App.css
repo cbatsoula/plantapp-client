@@ -20,10 +20,15 @@
   width: 15vw;
   background-color: darkgreen;
   padding: 25px;
+  flex-wrap: wrap;
 }
 
 .Sidebar-Search {
 /* flex & search bar is a little wild */
+}
+
+.FaqContainer {
+  display: flex;
 }
 
 .PlantCollection {

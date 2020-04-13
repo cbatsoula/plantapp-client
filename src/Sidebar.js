@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import Faq from './Faq.js'
 
 class Sidebar extends React.Component {
 
@@ -52,6 +52,8 @@ class Sidebar extends React.Component {
           onClick={this.props.handleSearchSubmit}>Submit</button>
 
         </div>
+
+        <Faq />
       </div>
     );
   }
