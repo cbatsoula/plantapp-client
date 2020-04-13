@@ -21,6 +21,7 @@
   background-color: darkgreen;
   padding: 25px;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .Sidebar-Search {
@@ -29,6 +30,7 @@
 
 .FaqContainer {
   display: flex;
+  /* flex-direction: row; */
 }
 
 .PlantCollection {
