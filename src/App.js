@@ -35,7 +35,8 @@ class App extends React.Component {
     //   currentBeach: selectedBeach
     // }, () => {this.props.history.push('/beach')})
     this.setState({
-      currentPlant: props
+      currentPlant: props,
+      searchTerm: null,
     }, () => {console.log("setState on selected plant!", this.state)})
 
   }
@@ -65,7 +66,8 @@ class App extends React.Component {
           .then( data => {
             console.log("where are you", data)
             this.setState({
-              plantdata: data
+              plantdata: data,
+              currentPlant: null,
             })
           })
           .catch(error => {
