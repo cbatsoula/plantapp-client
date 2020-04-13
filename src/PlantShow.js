@@ -30,7 +30,7 @@ class PlantShow extends React.Component {
       console.log("renderImages TRUUUU", this.state.images)
       return this.state.images.map( image => {
         console.log("image", image)
-        return <img src={image} width={300} ></img>
+        return <img src={image.url} height={500} width={500} ></img>
       })
     } else {
       console.log("renderImages NAAHHHHH")
