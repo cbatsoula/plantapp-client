@@ -25,6 +25,19 @@ class PlantShow extends React.Component {
       })
   }
 
+  renderImages () {
+    if (this.state.images){
+      console.log("renderImages TRUUUU", this.state.images)
+      return this.state.images.map( image => {
+        console.log("image", image)
+        return <img src={image.url} height={500} width={500} ></img>
+      })
+    } else {
+      console.log("renderImages NAAHHHHH")
+      return <h4> No image available </h4>
+    }
+  }
+
   images () {
     if (this.state.thisPlantData.images) {
       this.setState({
@@ -34,7 +47,7 @@ class PlantShow extends React.Component {
   }
 
   render () {
-    console.log("in plant show", this.props)
+    console.log("in plant show, props:", this.props, "in plant show, state:", this.state)
     return (
       <div className="PlantShow">
         <h5> common name:{this.props.currentPlant.common_name} </h5><br />
@@ -56,6 +69,8 @@ class PlantShow extends React.Component {
           <h3> foliage: {this.state.thisPlantData.main_species.foliage.color},  {this.state.thisPlantData.main_species.foliage.porosity_summer}, {this.state.thisPlantData.main_species.foliage.texture}</h3><br />
 
           <h3>growth: ph min {this.state.thisPlantData.main_species.growth.ph_minimum}, ph max {this.state.thisPlantData.main_species.growth.ph_maximum}</h3><br /></span>
+
+          {this.renderImages()}
 
           </>
           :
