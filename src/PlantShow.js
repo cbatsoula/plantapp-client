@@ -69,7 +69,7 @@ class PlantShow extends React.Component {
           <h3> foliage: {this.state.thisPlantData.main_species.foliage.color},  {this.state.thisPlantData.main_species.foliage.porosity_summer}, {this.state.thisPlantData.main_species.foliage.texture}</h3><br />
 
           <h3>growth: ph min {this.state.thisPlantData.main_species.growth.ph_minimum}, ph max {this.state.thisPlantData.main_species.growth.ph_maximum}</h3><br /></span>
-
+          <h2>Photos</h2>
           {this.renderImages()}
 
           </>
