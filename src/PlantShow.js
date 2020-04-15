@@ -14,6 +14,8 @@ class PlantShow extends React.Component {
 
   componentDidMount () {
 
+    //hoist this fetch up to app and add in a conditional to check the id??
+
     fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.currentPlant.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
       .then( data => {
@@ -26,6 +28,7 @@ class PlantShow extends React.Component {
   }
 
   renderImages () {
+    console.log("renderImages:", this.state.images, this.state.thisPlantData)
     if (this.state.images){
       console.log("renderImages TRUUUU", this.state.images)
       return this.state.images.map( image => {
@@ -34,7 +37,7 @@ class PlantShow extends React.Component {
       })
     } else {
       console.log("renderImages NAAHHHHH")
-      return <h4> No image available </h4>
+      return <h4> No images available </h4>
     }
   }
 
@@ -42,6 +45,10 @@ class PlantShow extends React.Component {
     if (this.state.thisPlantData.images) {
       this.setState({
         images: this.state.thisPlantData.images
+      })
+    } else if (this.state.thisPlantData.images === []) {
+      this.setState({
+        images: null
       })
     }
   }
