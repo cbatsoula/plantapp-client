@@ -78,8 +78,12 @@ class App extends React.Component {
 
   }
 
-  handleColorChange(event) {
-   this.setState({value: event.target.value});
+  handleColorChange = (event) => {
+    console.log("handleColorChange", event.target.value)
+    this.setState({
+      value: event.target.value
+    })
+    console.log("after handleCOLORCHANGE", this.state.value)
  }
 
   render () {
