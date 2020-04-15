@@ -11,6 +11,7 @@ class App extends React.Component {
     searchTerm: "",
     currentPlant: null,
     value: null,
+    showing: null,
   }
 
 
@@ -31,9 +32,11 @@ class App extends React.Component {
 
   selectPlant = (props) => {
     console.log("HELL YEAH", props)
+    //props switches correctly from pastplant to new current plant
     console.log("why", this.state)
     this.setState({
       currentPlant: props,
+      showing: true,
       searchTerm: null,
     }, () => {console.log("setState on selected plant!", this.state)})
 
@@ -123,10 +126,11 @@ class App extends React.Component {
       }
 
       {
-        this.state.currentPlant
+        this.state.showing
         ?
         <PlantShow
-        currentPlant={this.state.currentPlant}/>
+        currentPlant={this.state.currentPlant}
+        showing={this.state.showing}/>
         :
         null
       }
