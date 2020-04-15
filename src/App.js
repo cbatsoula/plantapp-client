@@ -10,6 +10,7 @@ class App extends React.Component {
     plantdata: null,
     searchTerm: "",
     currentPlant: null,
+    value: 'something',
   }
 
 
@@ -31,9 +32,6 @@ class App extends React.Component {
   selectPlant = (props) => {
     console.log("HELL YEAH", props)
     console.log("why", this.state)
-    // this.setState({
-    //   currentBeach: selectedBeach
-    // }, () => {this.props.history.push('/beach')})
     this.setState({
       currentPlant: props,
       searchTerm: null,
@@ -80,6 +78,10 @@ class App extends React.Component {
 
   }
 
+  handleColorChange(event) {
+   this.setState({value: event.target.value});
+ }
+
   render () {
     console.log("here it is from APP", this.state)
     return (
@@ -88,7 +90,10 @@ class App extends React.Component {
       <Sidebar
       handleSearchSubmit={this.handleSearchSubmit}
       handleSearchChange={this.handleSearchChange}
-      searchTerm={this.state.searchTerm} />
+      searchTerm={this.state.searchTerm}
+      handleColorChange={this.handleColorChange}
+      value={this.state.value} />
+
       {
         this.state.plantdata
         ?
