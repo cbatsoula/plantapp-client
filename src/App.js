@@ -10,7 +10,7 @@ class App extends React.Component {
     plantdata: null,
     searchTerm: "",
     currentPlant: null,
-    value: 'something',
+    value: null,
   }
 
 
@@ -72,6 +72,8 @@ class App extends React.Component {
             console.log("error", error)
           })
 
+      } else if (this.state.value){
+        console.log("fruit color success", this.state.value, this.state.searchTerm)
       } else {
         console.log("nah")
       }

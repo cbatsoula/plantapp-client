@@ -50,6 +50,7 @@ class Sidebar extends React.Component {
           <label>
             Fruit color:
             <select value={this.props.value} onChange={this.props.handleColorChange}>
+              <option value={null}>Select</option>
               <option value="White">White</option>
               <option value="Yellow">Yellow</option>
               <option value="Orange">Orange</option>
