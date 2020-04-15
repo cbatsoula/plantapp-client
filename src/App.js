@@ -74,6 +74,18 @@ class App extends React.Component {
 
       } else if (this.state.value){
         console.log("fruit color success", this.state.value, this.state.searchTerm)
+        fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?fruit_color=${this.state.value}&page=1&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+          .then( r => r.json())
+          .then( data => {
+            console.log("fruit_color: where are you", data)
+            this.setState({
+              plantdata: data,
+              currentPlant: null,
+            })
+          })
+          .catch(error => {
+            console.log("error", error)
+          })
       } else {
         console.log("nah")
       }
