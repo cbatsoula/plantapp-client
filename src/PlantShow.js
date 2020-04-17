@@ -20,7 +20,7 @@ class PlantShow extends React.Component {
   }
 
   fetchPlant = () => {
-    
+
     fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.currentPlant.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
       .then( data => {
@@ -47,14 +47,17 @@ class PlantShow extends React.Component {
   }
 
   images () {
-    if (this.state.thisPlantData.images) {
-      this.setState({
-        images: this.state.thisPlantData.images
-      })
+    if (this.props.currentPlant.id || this.state.thisPlantData.id) {
+      console.log("images, props id:",this.props.currentPlant.id, "state id:", this.state.thisPlantData.id)
+      // this.setState({
+      //   images: this.state.thisPlantData.images
+      // })
     } else if (this.state.thisPlantData.images === []) {
       this.setState({
         images: null
       })
+    // } else if (this.state.thisPlantData.images) {
+    //   // console.log("images, props id:",this.props.currentPlant.id, "state id:", this.state.thisPlantData.id)
     }
   }
 
