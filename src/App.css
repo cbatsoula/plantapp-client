@@ -90,8 +90,9 @@
 
   justify-content: space-around;
   padding: 10px;
+  border: 1px solid #ffeacc;
 
-  margin: auto;
+  /* margin: auto; */
 
   span {
     background-color: white;
