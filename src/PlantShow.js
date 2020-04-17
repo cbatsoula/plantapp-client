@@ -16,6 +16,11 @@ class PlantShow extends React.Component {
 
     //hoist this fetch up to app and add in a conditional to check the id??
 
+    this.fetchPlant()
+  }
+
+  fetchPlant = () => {
+    
     fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.currentPlant.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
       .then( data => {
