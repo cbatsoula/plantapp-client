@@ -37,7 +37,7 @@ class Sidebar extends React.Component {
 
 
   render () {
-    console.log("sidebar", this.props)
+    // console.log("sidebar", this.props)
     return (
       <div className="Sidebar">
         <div className="Sidebar-Search" >

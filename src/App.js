@@ -34,11 +34,18 @@ class App extends React.Component {
     console.log("HELL YEAH", props)
     //props switches correctly from pastplant to new current plant
     console.log("why", this.state)
-    this.setState({
-      currentPlant: props,
-      showing: true,
-      searchTerm: null,
-    }, () => {console.log("setState on selected plant!", this.state)})
+
+    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${props.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+      .then( r => r.json())
+      .then( data => {
+        console.log("APP id fetch data response", data)
+        this.setState({
+          currentPlant: data,
+          showing: true,
+          searchTerm: null,
+        }, () => {console.log("setState on selected plant!", this.state.currentPlant)})
+        // {console.log("from state data", this.state.thisPlantData.images[0])}
+      })
 
   }
 
