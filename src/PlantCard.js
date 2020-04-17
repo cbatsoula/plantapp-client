@@ -49,7 +49,7 @@ class PlantCard extends React.Component {
 
 
   render () {
-    console.log("plant card", this.props)
+    // console.log("plant card", this.props)
 
     return (
       <div className="PlantCard" onClick={() => {this.props.selectPlant(this.props.plantInfo)}}>

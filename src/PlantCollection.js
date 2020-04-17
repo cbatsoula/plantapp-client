@@ -5,7 +5,7 @@ import PlantCard from './PlantCard.js'
 
 class PlantCollection extends React.Component {
 
-  renderNames () {
+  renderCards () {
     return this.props.someData.map( el => {
       return <PlantCard selectPlant={this.props.selectPlant} plantInfo={el}  />
     })
@@ -13,14 +13,14 @@ class PlantCollection extends React.Component {
 
 
   render () {
-    console.log("in plant collection", this.props.someData)
+    // console.log("in plant collection", this.props.someData)
 
     return (
       <div className="PlantCollection">
       {
         this.props.someData
         ?
-        this.renderNames()
+        this.renderCards()
         :
         null
       }
