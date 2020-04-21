@@ -1,37 +1,10 @@
 import React from 'react';
 import './App.css';
 
-
-
 class PlantShow extends React.Component {
 
   //found another api with maybe more complete data, so if thats true, in APP where I get the currentplant's data I need to run a conditional to see if that plant data is complete, if not fetch from this other API. WIll need to likely break down the props bc they will likely not match up in structure.
   //EOL data services
-
-  state = {
-    thisPlantData: null,
-    images: null,
-  }
-
-  componentDidMount () {
-
-    //hoist this fetch up to app and add in a conditional to check the id??
-
-    // this.fetchPlant()
-  }
-
-  fetchPlant = () => {
-
-    // fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${this.props.currentPlant.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
-    //   .then( r => r.json())
-    //   .then( data => {
-    //     console.log("id fetch data response", data)
-    //     this.setState({
-    //       thisPlantData: data,
-    //     }, () => {this.images()})
-    //     // {console.log("from state data", this.props.currentPlant.images[0])}
-    //   })
-  }
 
   renderImages () {
     console.log("renderImages:", this.state.images, this.state.thisPlantData)
@@ -44,21 +17,6 @@ class PlantShow extends React.Component {
     } else {
       console.log("renderImages NAAHHHHH")
       return <h4> No images available </h4>
-    }
-  }
-
-  images () {
-    if (this.props.currentPlant.id || this.state.thisPlantData.id) {
-      console.log("images, props id:",this.props.currentPlant.id, "state id:", this.state.thisPlantData.id)
-      // this.setState({
-      //   images: this.state.thisPlantData.images
-      // })
-    } else if (this.state.thisPlantData.images === []) {
-      this.setState({
-        images: null
-      })
-    // } else if (this.state.thisPlantData.images) {
-    //   // console.log("images, props id:",this.props.currentPlant.id, "state id:", this.state.thisPlantData.id)
     }
   }
 

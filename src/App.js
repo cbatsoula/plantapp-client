@@ -50,8 +50,6 @@ class App extends React.Component {
 
   }
 
-
-
     handleSearchChange = (event) => {
     let fullTerm = (event.target.value);
     console.log("fullTerm", fullTerm)
@@ -84,6 +82,19 @@ class App extends React.Component {
             console.log("error", error)
           })
 
+      } else if (this.state.value && this.state.bloom_period) {
+        fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&fruit_color=${this.state.value}&page=1&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+          .then( r => r.json())
+          .then( data => {
+            console.log("fruit or seed AND bloom", data)
+            this.setState({
+              plantdata: data,
+              currentPlant: null,
+            })
+          })
+          .catch(error => {
+            console.log("error", error)
+          })
       } else if (this.state.value ){
         console.log("fruit color success", this.state.value, this.state.searchTerm)
         fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?fruit_color=${this.state.value}&page=1&token=${process.env.REACT_APP_TREFLE_API_KEY}`)

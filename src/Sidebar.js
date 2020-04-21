@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
           placeholder="Search here!"
           />
           <label>
-            Fruit color:
+            Fruit OR Seed color:
             <select value={this.props.value} onChange={this.props.handleColorChange}>
               <option value={null}>Select</option>
               <option value="White">White</option>
