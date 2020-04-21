@@ -5,7 +5,8 @@ import './App.css';
 
 class PlantShow extends React.Component {
 
-  //maybe change layout, so that the detail show page of each plant will almost just be a panel, I think this would be a good way to browse the plants with images rather than even showing the image in a PlantCard maybe??!!!
+  //found another api with maybe more complete data, so if thats true, in APP where I get the currentplant's data I need to run a conditional to see if that plant data is complete, if not fetch from this other API. WIll need to likely break down the props bc they will likely not match up in structure.
+  //EOL data services
 
   state = {
     thisPlantData: null,
