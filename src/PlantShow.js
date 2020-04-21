@@ -65,22 +65,19 @@ class PlantShow extends React.Component {
     console.log("in plant show, props:", this.props, "in plant show, state:", this.state)
     return (
       <div className="PlantShow">
-        <h5> common name:{this.props.currentPlant.common_name} </h5><br />
-        <h5> scientific name: {this.props.currentPlant.scientific_name} </h5>
-        <h5> complete data? :{this.props.currentPlant.complete_data? this.props.currentPlant.complete_data.toString() : "false"} </h5>
-          <span><h5> class: {this.props.currentPlant.class.name}</h5><br />
-          <h5> division: {this.props.currentPlant.division.name}</h5><br />
-          <h5> family: {this.props.currentPlant.family.common_name}, {this.props.currentPlant.family.name}</h5><br />
-          <h5> order: {this.props.currentPlant.order.name}</h5><br />
-
-          <h5> duration: {this.props.currentPlant.duration}</h5><br />
-
-          <h3> flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
-          <h3> foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
-
-          <h3>growth: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br /></span>
-          <h2>Photos</h2>
-          {this.renderImages()}
+        <span><h3> Common name:{this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "No common name"} </h3><br />
+        <h3> Scientific name: {this.props.currentPlant.scientific_name ? this.props.currentPlant.scientific_name : "No scientific name"} </h3><br />
+        <h3> Data:{this.props.currentPlant.complete_data ? "Complete" : "Incomplete"} </h3><br />
+        <h3> Class: {this.props.currentPlant.class.name}</h3><br />
+        <h3> Division: {this.props.currentPlant.division.name}</h3><br />
+        <h3> Family: {this.props.currentPlant.family.common_name}, {this.props.currentPlant.family.name}</h3><br />
+        <h3> Order: {this.props.currentPlant.order.name}</h3><br />
+        <h3> Duration: {this.props.currentPlant.duration}</h3><br />
+        <h3> Flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
+        <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
+        <h3> Growth: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
+        <h3> Photos</h3></span><br />
+        {this.renderImages()}
 
 
       </div>

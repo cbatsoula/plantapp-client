@@ -63,6 +63,7 @@ class App extends React.Component {
   }
 
   handleSearchSubmit = (event) => {
+    // add error if an empty array returns from fetch -- suggest looking up by scientific_name
     // console.log("submit!")
     event.preventDefault();
       if (this.state.searchTerm){
