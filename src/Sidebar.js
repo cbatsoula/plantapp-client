@@ -4,38 +4,6 @@ import Faq from './Faq.js'
 
 class Sidebar extends React.Component {
 
-//   state = {
-//     searchTerm: "",
-//   }
-//
-//   handleSearchChange = (event) => {
-//   // console.log("typin'", event.target.value)
-//   let fullTerm = (event.target.value.charAt(0).toUpperCase()) + (event.target.value.slice(1));
-//   this.setState({
-//     searchTerm: fullTerm
-//   })
-// }
-//
-// handleSearchSubmit = (event) => {
-//   // console.log("submit!")
-//   event.preventDefault();
-//     if (this.state.searchTerm){
-//       console.log("submit!!")
-//       // let filtered = this.state.bodies.filter(body => {
-//       //   return body.englishName === this.state.searchTerm
-//       //   console.log("submit!!!")
-//       // })
-//       //   this.setState({
-//       //     searchTerm: ""
-//       //   })
-//       // return this.state.searchTerm
-//     } else {
-//       console.log("nah")
-//     }
-//
-// }
-
-
   render () {
     // console.log("sidebar", this.props)
     return (
@@ -60,6 +28,16 @@ class Sidebar extends React.Component {
               <option value="Green">Green</option>
               <option value="Brown">Brown</option>
               <option value="Black">Black</option>
+            </select>
+          </label>
+          <label>
+            Bloom period:
+            <select value={this.props.bloom_period} onChange={this.props.handleBloomChange}>
+              <option value={null}>Select</option>
+              <option value="Winter">Winter</option>
+              <option value="Spring">Spring</option>
+              <option value="Summer">Summer</option>
+              <option value="Autumn">Autumn</option>
             </select>
           </label>
           <button

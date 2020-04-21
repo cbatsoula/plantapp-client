@@ -12,6 +12,7 @@ class App extends React.Component {
     currentPlant: null,
     value: null,
     showing: null,
+    bloom_period: null,
   }
 
 
@@ -63,6 +64,7 @@ class App extends React.Component {
   }
 
   handleSearchSubmit = (event) => {
+    // add error if an empty array returns from fetch -- suggest looking up by scientific_name
     // console.log("submit!")
     event.preventDefault();
       if (this.state.searchTerm){
@@ -82,7 +84,7 @@ class App extends React.Component {
             console.log("error", error)
           })
 
-      } else if (this.state.value){
+      } else if (this.state.value ){
         console.log("fruit color success", this.state.value, this.state.searchTerm)
         fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?fruit_color=${this.state.value}&page=1&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
           .then( r => r.json())
@@ -96,7 +98,20 @@ class App extends React.Component {
           .catch(error => {
             console.log("error", error)
           })
-      } else {
+      } else if (this.state.bloom_period) {
+        console.log("bloom period", this.state.bloom_period)
+        fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+          .then( r => r.json())
+          .then( data => {
+            this.setState({
+              plantdata: data,
+              currentPlant: null,
+            })
+          })
+      }
+
+
+      else {
         console.log("nah")
       }
 
@@ -110,6 +125,14 @@ class App extends React.Component {
     console.log("after handleCOLORCHANGE", this.state.value)
  }
 
+ handleBloomChange = (event) => {
+   console.log("handleBloomChange", event.target.value)
+   this.setState({
+     bloom_period: event.target.value
+   })
+   console.log("after handleBLOOM CHANGE", this.state.bloom_period)
+ }
+
   render () {
     console.log("here it is from APP", this.state)
     return (
@@ -120,7 +143,9 @@ class App extends React.Component {
       handleSearchChange={this.handleSearchChange}
       searchTerm={this.state.searchTerm}
       handleColorChange={this.handleColorChange}
-      value={this.state.value} />
+      value={this.state.value}
+      bloom_period={this.state.bloom_period}
+      handleBloomChange={this.handleBloomChange} />
 
       {
         this.state.plantdata

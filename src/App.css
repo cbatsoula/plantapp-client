@@ -43,7 +43,7 @@
   flex-direction: row;
   padding: 10px;
 
-  margin: auto;
+  /* margin: auto; */
   align-content: stretch;
 
   text-align: center;
@@ -93,10 +93,6 @@
   border: 1px solid #ffeacc;
 
   /* margin: auto; */
-
-  span {
-    background-color: white;
-  }
 
 }
 
