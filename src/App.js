@@ -4,6 +4,8 @@ import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
 import PlantShow from './PlantShow.js';
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 class App extends React.Component {
 
   state = {
