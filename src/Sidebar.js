@@ -2,12 +2,15 @@ import React from 'react';
 import './App.css';
 import Faq from './Faq.js'
 
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 class Sidebar extends React.Component {
 
   render () {
     // console.log("sidebar", this.props)
     return (
       <div className="Sidebar">
+      <Router>
         <div className="Sidebar-Search" >
           <input
           type="text"
@@ -44,8 +47,11 @@ class Sidebar extends React.Component {
           type="submit"
           onClick={this.props.handleSearchSubmit}>Submit</button>
         </div>
+        <Switch>
+          <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+        </Switch>
+        </Router>
 
-        <Faq />
       </div>
     );
   }
