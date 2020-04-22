@@ -4,7 +4,8 @@ import './App.css';
 class PlantShow extends React.Component {
 
   //found another api with maybe more complete data, so if thats true, in APP where I get the currentplant's data I need to run a conditional to see if that plant data is complete, if not fetch from this other API. WIll need to likely break down the props bc they will likely not match up in structure.
-  //EOL data services
+  //EOL data services -- kind of weird, they dont require a key but still include ?key= in the fetch request and its hard to really browse or make a -proper- request
+  //USDA doesnt have a REST API, some individual devs have some progress on making it possible but nothing yet useable
 
   renderImages () {
     console.log("renderImages:", this.state.images, this.state.thisPlantData)
