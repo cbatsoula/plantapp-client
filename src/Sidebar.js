@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Faq from './Faq.js'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class Sidebar extends React.Component {
 
@@ -47,9 +47,13 @@ class Sidebar extends React.Component {
           type="submit"
           onClick={this.props.handleSearchSubmit}>Submit</button>
         </div>
-        <Switch>
+        
           <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
-        </Switch>
+          <Link to="/mygarden"><button style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
+          <Link to="/faq"><button style={{textDecoration: 'none'}}>Faq</button></Link>
+
+
+
         </Router>
 
       </div>
