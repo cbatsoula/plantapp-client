@@ -3,6 +3,7 @@ import './App.css';
 import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
 import PlantShow from './PlantShow.js';
+import Faq from './Faq.js'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -34,9 +35,6 @@ class App extends React.Component {
   }
 
   selectPlant = (props) => {
-    console.log("HELL YEAH", props)
-    //props switches correctly from pastplant to new current plant
-    console.log("why", this.state)
 
     fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${props.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
@@ -179,7 +177,15 @@ class App extends React.Component {
         :
         null
       }
+      <Switch>
+        <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
+        <Route path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+
+
+
+
+      </Switch>
 
 
       </div>
