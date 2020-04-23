@@ -76,7 +76,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            }, () => this.props.history.push("/browse"))
+            })
           })
           .catch(error => {
             console.log("error", error)
@@ -90,7 +90,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            }, () => this.props.history.push("/browse"))
+            })
           })
           .catch(error => {
             console.log("error", error)
@@ -104,7 +104,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            }, () => this.props.history.push("/browse"))
+            })
           })
           .catch(error => {
             console.log("error", error)
@@ -117,7 +117,9 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            }, () => this.context.history.push("/browse"))
+            }
+            // , () => this.context.history.push("/browse")
+          )
           })
       }
 
@@ -153,47 +155,49 @@ class App extends React.Component {
     console.log("here it is from APP", this.state)
     return (
       <>
-      <div className="App">
+      <Router>
+        <div className="App">
 
-      <Sidebar
-      handleSearchSubmit={this.handleSearchSubmit}
-      handleSearchChange={this.handleSearchChange}
-      searchTerm={this.state.searchTerm}
-      handleColorChange={this.handleColorChange}
-      value={this.state.value}
-      bloom_period={this.state.bloom_period}
-      handleBloomChange={this.handleBloomChange}
-      gardenClick={this.gardenClick} />
+        <Sidebar
+        handleSearchSubmit={this.handleSearchSubmit}
+        handleSearchChange={this.handleSearchChange}
+        searchTerm={this.state.searchTerm}
+        handleColorChange={this.handleColorChange}
+        value={this.state.value}
+        bloom_period={this.state.bloom_period}
+        handleBloomChange={this.handleBloomChange}
+        gardenClick={this.gardenClick} />
 
-      <Switch>
-      {
-        this.state.plantdata
-        ?
-        <Route exact path="/browse" render={(routerProps) => <PlantCollection
-        selectPlant={this.selectPlant}
-        someData={this.state.plantdata} />} />
+        <Switch>
+        {
+          this.state.plantdata
+          ?
+          <PlantCollection
+          selectPlant={this.selectPlant}
+          someData={this.state.plantdata} />
 
-        :
-        null
-      }
+          :
+          null
+        }
 
-      {
-        this.state.showing
-        ?
-        <PlantShow
-          currentPlant={this.state.currentPlant}
-          showing={this.state.showing}/>
-        :
-        null
-      }
-          <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+        {
+          this.state.showing
+          ?
+          <PlantShow
+            currentPlant={this.state.currentPlant}
+            showing={this.state.showing}/>
+          :
+          null
+        }
+            <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
-          <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+            <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
 
-        </Switch>
+          </Switch>
 
 
-      </div>
+        </div>
+      </Router>
       </>
     );
   }
