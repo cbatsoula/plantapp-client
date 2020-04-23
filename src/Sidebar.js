@@ -48,7 +48,9 @@ class Sidebar extends React.Component {
         </div>
 
           <Link to="/mygarden"><button style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
+
           <Link to="/faq"><button style={{textDecoration: 'none'}}>Faq</button></Link>
+          
         </Router>
       </div>
     );

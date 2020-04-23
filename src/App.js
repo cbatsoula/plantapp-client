@@ -149,6 +149,7 @@ class App extends React.Component {
     return (
       <>
       <div className="App">
+      <Router>
       <Sidebar
       handleSearchSubmit={this.handleSearchSubmit}
       handleSearchChange={this.handleSearchChange}
@@ -172,8 +173,8 @@ class App extends React.Component {
         this.state.showing
         ?
         <PlantShow
-        currentPlant={this.state.currentPlant}
-        showing={this.state.showing}/>
+          currentPlant={this.state.currentPlant}
+          showing={this.state.showing}/>
         :
         null
       }
@@ -185,9 +186,11 @@ class App extends React.Component {
 
 
 
+
+
       </Switch>
 
-
+      </ Router>
       </div>
       </>
     );
