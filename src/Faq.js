@@ -37,12 +37,12 @@ class Faq extends React.Component {
   //a gardening tool to measure sun, ph, and dirt moisture levels is v nice to have, they are not expensive on amazon generally. //link one..??
   // moving plants as the day continues, and moving plants for seasons?
 
-
+  //this is displaying within sidebar, I want it to be within APP/main, not sidebar.
   render () {
 
     return (
       <div className="FaqContainer">
-        <h3>FAQ</h3>
+        <h3>Hi Elliott!!</h3>
       </div>
     );
   }

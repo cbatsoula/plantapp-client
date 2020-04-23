@@ -8,9 +8,8 @@ class PlantShow extends React.Component {
   //USDA doesnt have a REST API, some individual devs have some progress on making it possible but nothing yet useable
 
   renderImages () {
-    console.log("renderImages:", this.state.images, this.state.thisPlantData)
     if (this.props.currentPlant.images){
-      console.log("renderImages TRUUUU", this.state.images)
+      console.log("renderImages TRUUUU", this.props.currentPlant.images)
       return this.props.currentPlant.images.map( image => {
         console.log("image", image)
         return <img src={image.url} height={500} width={500} ></img>
@@ -28,15 +27,15 @@ class PlantShow extends React.Component {
         <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />
         <h3> Scientific name: {this.props.currentPlant.scientific_name ? this.props.currentPlant.scientific_name : "Incomplete data"} </h3><br />
         <h3> Data:{this.props.currentPlant.complete_data ? "Complete" : "Incomplete"} </h3><br />
-        <h3> Class: {this.props.currentPlant.class.name}</h3><br />
-        <h3> Division: {this.props.currentPlant.division.name}</h3><br />
+        <h3> Class: {this.props.currentPlant.class.name ? this.props.currentPlant.class.name : "Incomplete data"}</h3><br />
+        <h3> Division: {this.props.currentPlant.division.name ? this.props.currentPlant.division.name : "Incomplete data"}</h3><br />
         <h3> Family: {this.props.currentPlant.family.common_name}, {this.props.currentPlant.family.name}</h3><br />
         <h3> Order: {this.props.currentPlant.order.name}</h3><br />
         <h3> Duration: {this.props.currentPlant.duration}</h3><br />
         <h3> Flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
         <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
         <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
-        <h3>Blooms in: {this.props.currentPlant.seed.bloom_period ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
+        <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
         <h3> Photos</h3></span><br />
         {this.renderImages()}
 

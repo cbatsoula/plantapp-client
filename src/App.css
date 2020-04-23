@@ -22,10 +22,18 @@
   padding: 25px;
   flex-wrap: wrap;
   flex-direction: row;
+
+  border: 1px solid black;
+
+  -webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
 }
 
 .Sidebar-Search {
 /* flex & search bar is a little wild */
+
+
 }
 
 .FaqContainer {
@@ -63,6 +71,10 @@
   flex-direction: row;
   flex-wrap: wrap;
 
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
 
 }
 
@@ -93,6 +105,10 @@
   border: 1px solid #ffeacc;
 
   /* margin: auto; */
+
+  -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
 
 }
 

@@ -2,21 +2,23 @@ import React from 'react';
 import './App.css';
 import Faq from './Faq.js'
 
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 class Sidebar extends React.Component {
 
   render () {
     // console.log("sidebar", this.props)
     return (
       <div className="Sidebar">
+      <Router>
         <div className="Sidebar-Search" >
           <input
           type="text"
           value={this.props.searchTerm}
           onChange={this.props.handleSearchChange}
-          placeholder="Search here!"
-          />
-          <label>
-            Fruit OR Seed color:
+          placeholder="Search by scientific or common name"/><br />
+          <label><br />
+            Fruit OR Seed color: <br />
             <select value={this.props.value} onChange={this.props.handleColorChange}>
               <option value={null}>Select</option>
               <option value="White">White</option>
@@ -29,9 +31,9 @@ class Sidebar extends React.Component {
               <option value="Brown">Brown</option>
               <option value="Black">Black</option>
             </select>
-          </label>
+          </label> <br />
           <label>
-            Bloom period:
+            Bloom period: <br />
             <select value={this.props.bloom_period} onChange={this.props.handleBloomChange}>
               <option value={null}>Select</option>
               <option value="Winter">Winter</option>
@@ -39,13 +41,17 @@ class Sidebar extends React.Component {
               <option value="Summer">Summer</option>
               <option value="Autumn">Autumn</option>
             </select>
-          </label>
+          </label> <br />
           <button
           type="submit"
           onClick={this.props.handleSearchSubmit}>Submit</button>
         </div>
 
-        <Faq />
+          <Link to="/mygarden" ><button style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
+
+          <Link to="/faq"><button style={{textDecoration: 'none'}}>Faq</button></Link>
+
+        </Router>
       </div>
     );
   }
