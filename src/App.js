@@ -76,7 +76,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }, () => this.props.history.push("/browse"))
           })
           .catch(error => {
             console.log("error", error)
@@ -90,7 +90,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }, () => this.props.history.push("/browse"))
           })
           .catch(error => {
             console.log("error", error)
@@ -104,7 +104,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }, () => this.props.history.push("/browse"))
           })
           .catch(error => {
             console.log("error", error)
@@ -117,7 +117,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }, () => this.context.history.push("/browse"))
           })
       }
 
@@ -144,6 +144,11 @@ class App extends React.Component {
    console.log("after handleBLOOM CHANGE", this.state.bloom_period)
  }
 
+ gardenClick = (event) => {
+
+
+ }
+
   render () {
     console.log("here it is from APP", this.state)
     return (
@@ -157,15 +162,17 @@ class App extends React.Component {
       handleColorChange={this.handleColorChange}
       value={this.state.value}
       bloom_period={this.state.bloom_period}
-      handleBloomChange={this.handleBloomChange} />
+      handleBloomChange={this.handleBloomChange}
+      gardenClick={this.gardenClick} />
 
       <Switch>
       {
         this.state.plantdata
         ?
-        <PlantCollection
+        <Route exact path="/browse" render={(routerProps) => <PlantCollection
         selectPlant={this.selectPlant}
-        someData={this.state.plantdata} />
+        someData={this.state.plantdata} />} />
+
         :
         null
       }
@@ -179,9 +186,9 @@ class App extends React.Component {
         :
         null
       }
-          <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+          <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
-          <Route path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+          <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
 
         </Switch>
 
