@@ -42,7 +42,7 @@ class Faq extends React.Component {
 
     return (
       <div className="FaqContainer">
-        <h3>Hello world</h3>
+        <h3>Hi Elliott!!</h3>
       </div>
     );
   }

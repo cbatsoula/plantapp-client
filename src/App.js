@@ -117,7 +117,9 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }
+            // , () => this.context.history.push("/browse")
+          )
           })
       }
 
@@ -144,51 +146,50 @@ class App extends React.Component {
    console.log("after handleBLOOM CHANGE", this.state.bloom_period)
  }
 
+
   render () {
     console.log("here it is from APP", this.state)
     return (
       <>
-      <div className="App">
-      <Sidebar
-      handleSearchSubmit={this.handleSearchSubmit}
-      handleSearchChange={this.handleSearchChange}
-      searchTerm={this.state.searchTerm}
-      handleColorChange={this.handleColorChange}
-      value={this.state.value}
-      bloom_period={this.state.bloom_period}
-      handleBloomChange={this.handleBloomChange} />
 
-      {
-        this.state.plantdata
-        ?
-        <PlantCollection
-        selectPlant={this.selectPlant}
-        someData={this.state.plantdata}/>
-        :
-        null
-      }
+        <div className="App">
 
-      {
-        this.state.showing
-        ?
-        <PlantShow
-        currentPlant={this.state.currentPlant}
-        showing={this.state.showing}/>
-        :
-        null
-      }
-      <Switch>
-        <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+        <Sidebar
+        handleSearchSubmit={this.handleSearchSubmit}
+        handleSearchChange={this.handleSearchChange}
+        searchTerm={this.state.searchTerm}
+        handleColorChange={this.handleColorChange}
+        value={this.state.value}
+        bloom_period={this.state.bloom_period}
+        handleBloomChange={this.handleBloomChange}/>
 
-        <Route path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+        {
+          this.state.plantdata
+          ?
+          <PlantCollection
+          selectPlant={this.selectPlant}
+          someData={this.state.plantdata} />
+          :
+          null
+        }
 
+        {
+          this.state.showing
+          ?
+          <PlantShow currentPlant={this.state.currentPlant} showing={this.state.showing}/>
+          :
+          null
+        }
+          <Switch>
+            <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
+            <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
 
-
-      </Switch>
+          </Switch>
 
 
-      </div>
+        </div>
+
       </>
     );
   }
