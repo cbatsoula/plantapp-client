@@ -146,16 +146,12 @@ class App extends React.Component {
    console.log("after handleBLOOM CHANGE", this.state.bloom_period)
  }
 
- gardenClick = (event) => {
-
-
- }
 
   render () {
     console.log("here it is from APP", this.state)
     return (
       <>
-      <Router>
+
         <div className="App">
 
         <Sidebar
@@ -165,17 +161,14 @@ class App extends React.Component {
         handleColorChange={this.handleColorChange}
         value={this.state.value}
         bloom_period={this.state.bloom_period}
-        handleBloomChange={this.handleBloomChange}
-        gardenClick={this.gardenClick} />
+        handleBloomChange={this.handleBloomChange}/>
 
-        <Switch>
         {
           this.state.plantdata
           ?
           <PlantCollection
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
-
           :
           null
         }
@@ -183,12 +176,11 @@ class App extends React.Component {
         {
           this.state.showing
           ?
-          <PlantShow
-            currentPlant={this.state.currentPlant}
-            showing={this.state.showing}/>
+          <PlantShow currentPlant={this.state.currentPlant} showing={this.state.showing}/>
           :
           null
         }
+          <Switch>
             <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
             <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
@@ -197,7 +189,7 @@ class App extends React.Component {
 
 
         </div>
-      </Router>
+
       </>
     );
   }
