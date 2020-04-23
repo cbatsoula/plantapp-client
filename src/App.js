@@ -149,7 +149,7 @@ class App extends React.Component {
     return (
       <>
       <div className="App">
-      <Router>
+
       <Sidebar
       handleSearchSubmit={this.handleSearchSubmit}
       handleSearchChange={this.handleSearchChange}
@@ -159,12 +159,13 @@ class App extends React.Component {
       bloom_period={this.state.bloom_period}
       handleBloomChange={this.handleBloomChange} />
 
+      <Switch>
       {
         this.state.plantdata
         ?
         <PlantCollection
         selectPlant={this.selectPlant}
-        someData={this.state.plantdata}/>
+        someData={this.state.plantdata} />
         :
         null
       }
@@ -178,19 +179,13 @@ class App extends React.Component {
         :
         null
       }
-      <Switch>
-        <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+          <Route path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
-        <Route path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+          <Route path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
 
-
-
+        </Switch>
 
 
-
-      </Switch>
-
-      </ Router>
       </div>
       </>
     );
