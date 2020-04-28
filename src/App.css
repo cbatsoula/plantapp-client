@@ -22,6 +22,7 @@
   padding: 25px;
   flex-wrap: wrap;
   flex-direction: row;
+  /* position: fixed; */
 }
 
 .Sidebar-Search {
