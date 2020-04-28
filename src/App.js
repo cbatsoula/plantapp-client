@@ -3,6 +3,9 @@ import './App.css';
 import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
 import PlantShow from './PlantShow.js';
+import Faq from './Faq.js'
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 
@@ -32,9 +35,6 @@ class App extends React.Component {
   }
 
   selectPlant = (props) => {
-    console.log("HELL YEAH", props)
-    //props switches correctly from pastplant to new current plant
-    console.log("why", this.state)
 
     fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${props.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
@@ -117,7 +117,9 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
-            })
+            }
+            // , () => this.context.history.push("/browse")
+          )
           })
       }
 
@@ -144,43 +146,50 @@ class App extends React.Component {
    console.log("after handleBLOOM CHANGE", this.state.bloom_period)
  }
 
+
   render () {
     console.log("here it is from APP", this.state)
     return (
       <>
-      <div className="App">
-      <Sidebar
-      handleSearchSubmit={this.handleSearchSubmit}
-      handleSearchChange={this.handleSearchChange}
-      searchTerm={this.state.searchTerm}
-      handleColorChange={this.handleColorChange}
-      value={this.state.value}
-      bloom_period={this.state.bloom_period}
-      handleBloomChange={this.handleBloomChange} />
 
-      {
-        this.state.plantdata
-        ?
-        <PlantCollection
-        selectPlant={this.selectPlant}
-        someData={this.state.plantdata}/>
-        :
-        null
-      }
+        <div className="App">
 
-      {
-        this.state.showing
-        ?
-        <PlantShow
-        currentPlant={this.state.currentPlant}
-        showing={this.state.showing}/>
-        :
-        null
-      }
+        <Sidebar
+        handleSearchSubmit={this.handleSearchSubmit}
+        handleSearchChange={this.handleSearchChange}
+        searchTerm={this.state.searchTerm}
+        handleColorChange={this.handleColorChange}
+        value={this.state.value}
+        bloom_period={this.state.bloom_period}
+        handleBloomChange={this.handleBloomChange}/>
+
+        {
+          this.state.plantdata
+          ?
+          <PlantCollection
+          selectPlant={this.selectPlant}
+          someData={this.state.plantdata} />
+          :
+          null
+        }
+
+        {
+          this.state.showing
+          ?
+          <PlantShow currentPlant={this.state.currentPlant} showing={this.state.showing}/>
+          :
+          null
+        }
+          <Switch>
+            <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
+
+            <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+
+          </Switch>
 
 
+        </div>
 
-      </div>
       </>
     );
   }
