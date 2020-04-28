@@ -111,7 +111,18 @@ class App extends React.Component {
           })
       } else if (this.state.bloom_period) {
         console.log("bloom period", this.state.bloom_period)
-        fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+        fetch(`https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&token=${process.env.REACT_APP_TREFLE_API_KEY}`, {
+          mode: 'cors',
+          headers: {
+          //   // 'Access-Control-Request-Method': 'GET',
+            'Access-Control-Allow-Origin': 'http://localhost:3001',
+          //   // 'Access-Control-Allow-Credentials': true,
+          //   // 'Access-Control-Request-Headers': 'Content-Type',
+            'Origin': 'http://localhost:3001',
+            'Content-Type': 'application/json',
+            'Credentials': 'include',
+          },
+        })
           .then( r => r.json())
           .then( data => {
             this.setState({
@@ -120,6 +131,9 @@ class App extends React.Component {
             }
             // , () => this.context.history.push("/browse")
           )
+          })
+          .catch((error) => {
+            console.error('Error:', error);
           })
       }
 
