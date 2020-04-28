@@ -112,15 +112,15 @@ class App extends React.Component {
       } else if (this.state.bloom_period) {
         console.log("bloom period", this.state.bloom_period)
         fetch(`https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&token=${process.env.REACT_APP_TREFLE_API_KEY}`, {
-          mode: 'cors'
-        },
-          {
+          mode: 'no-cors',
           headers: {
-            'Access-Control-Request-Method': 'GET',
+          //   // 'Access-Control-Request-Method': 'GET',
             'Access-Control-Allow-Origin': 'http://localhost:3001',
-            // 'Access-Control-Allow-Credentials': true,
-            'Access-Control-Request-Headers': 'Content-Type',
+          //   // 'Access-Control-Allow-Credentials': true,
+          //   // 'Access-Control-Request-Headers': 'Content-Type',
+          //   // 'Host': 'https://trefle.io',
             'Content-Type': 'application/json',
+            'Credentials': 'include',
           },
         })
           .then( r => r.json())
