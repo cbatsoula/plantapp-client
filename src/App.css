@@ -22,12 +22,13 @@
   padding: 25px;
   flex-wrap: wrap;
   flex-direction: row;
-
+  /* position: fixed; */
   border: 1px solid black;
 
   -webkit-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+
 }
 
 .Sidebar-Search {
