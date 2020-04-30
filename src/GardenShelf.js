@@ -13,7 +13,7 @@ class GardenShelf extends React.Component {
     console.log("Garden Shelf Props:", this.props)
     return (
       <div className="GardenShelfContainer">
-        <h3>These are your plants!</h3>
+        <span><h3>These are your plants!</h3><br /></span>
         {this.listPlants()}
       </div>
     );
