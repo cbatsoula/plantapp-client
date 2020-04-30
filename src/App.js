@@ -16,6 +16,7 @@ class App extends React.Component {
     value: null,
     showing: null,
     bloom_period: null,
+    gardenOnClick: false,
   }
 
 
@@ -114,13 +115,14 @@ class App extends React.Component {
         fetch(`https://trefle.io/api/plants?bloom_period=${this.state.bloom_period}&token=${process.env.REACT_APP_TREFLE_API_KEY}`, {
           mode: 'cors',
           headers: {
-          //   // 'Access-Control-Request-Method': 'GET',
-            'Access-Control-Allow-Origin': 'http://localhost:3001',
+            'Access-Control-Request-Method': 'GET',
+            'Access-Control-Allow-Origin': '*',
           //   // 'Access-Control-Allow-Credentials': true,
           //   // 'Access-Control-Request-Headers': 'Content-Type',
             'Origin': 'http://localhost:3001',
             'Content-Type': 'application/json',
-            'Credentials': 'include',
+            // 'Referrer-Policy': 'no-referrer-when-downgrade',
+            // 'Credentials': 'include',
           },
         })
           .then( r => r.json())
@@ -160,6 +162,14 @@ class App extends React.Component {
    console.log("after handleBLOOM CHANGE", this.state.bloom_period)
  }
 
+ gardenOnClick = () => {
+   console.log("gardenOnClick!!!", this.state.gardenOnClick)
+   this.setState({
+     gardenOnClick: !this.state.gardenOnClick
+   }, () => {console.log("gardenOnClick", this.state.gardenOnClick)})
+
+ }
+
 
   render () {
     console.log("here it is from APP", this.state)
@@ -175,7 +185,8 @@ class App extends React.Component {
         handleColorChange={this.handleColorChange}
         value={this.state.value}
         bloom_period={this.state.bloom_period}
-        handleBloomChange={this.handleBloomChange}/>
+        handleBloomChange={this.handleBloomChange}
+        gardenOnClick={this.gardenOnClick}/>
 
         {
           this.state.plantdata
@@ -194,10 +205,18 @@ class App extends React.Component {
           :
           null
         }
+
           <Switch>
             <Route exact path='/faq' render={(routerProps) => <Faq {...routerProps} /> } />
 
-            <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+            {
+              this.state.gardenOnClick
+              ?
+              <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+              :
+              console.log("this.state.gardenOnClick is false")
+            }
+
 
           </Switch>
 
