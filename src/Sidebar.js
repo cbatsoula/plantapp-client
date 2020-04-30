@@ -48,7 +48,6 @@ class Sidebar extends React.Component {
         </div>
 
           <Link to="/mygarden" ><button
-        
           onClick={() => {this.props.gardenOnClick()}}
           style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
 

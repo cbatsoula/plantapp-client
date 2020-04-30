@@ -4,6 +4,7 @@ import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
 import PlantShow from './PlantShow.js';
 import Faq from './Faq.js'
+import GardenShelf from './GardenShelf.js'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ class App extends React.Component {
     showing: null,
     bloom_period: null,
     gardenOnClick: false,
+    myPlants: null,
   }
 
 
@@ -32,6 +34,9 @@ class App extends React.Component {
       .then( r => r.json() )
       .then( data => {
         console.log("my plants!", data)
+        this.setState({
+          myPlants: data
+        })
       })
   }
 
@@ -163,7 +168,7 @@ class App extends React.Component {
  }
 
  gardenOnClick = () => {
-   console.log("gardenOnClick!!!", this.state.gardenOnClick)
+   console.log("gardenOnClick!!!")
    this.setState({
      gardenOnClick: !this.state.gardenOnClick
    }, () => {console.log("gardenOnClick", this.state.gardenOnClick)})
@@ -212,9 +217,9 @@ class App extends React.Component {
             {
               this.state.gardenOnClick
               ?
-              <Route exact path="/mygarden" render={(routerProps) => <Faq {...routerProps}  />} />
+              <GardenShelf myPlants={this.state.myPlants}  />
               :
-              console.log("this.state.gardenOnClick is false")
+              null
             }
 
 

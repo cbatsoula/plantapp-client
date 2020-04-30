@@ -42,6 +42,20 @@
   /* flex-direction: row; */
 }
 
+.GardenShelfContainer {
+  display: flex;
+  height: 100%;
+  width: 70vw;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  padding: 10px;
+
+  align-content: stretch;
+
+  text-align: center;
+}
+
 .PlantCollection {
   display: flex;
   /* background-color: #d3e0ce; */
