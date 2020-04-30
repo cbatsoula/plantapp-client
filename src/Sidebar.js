@@ -47,7 +47,10 @@ class Sidebar extends React.Component {
           onClick={this.props.handleSearchSubmit}>Submit</button>
         </div>
 
-          <Link to="/mygarden" ><button style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
+          <Link to="/mygarden" ><button
+        
+          onClick={() => {this.props.gardenOnClick()}}
+          style={{textDecoration: 'none'}}>Garden Shelf</button></Link>
 
           <Link to="/faq"><button style={{textDecoration: 'none'}}>Faq</button></Link>
 
