@@ -56,6 +56,26 @@
   text-align: center;
 }
 
+.GardenCard {
+  display: flex;
+  height: 30vh;
+  width: 30vw;
+  border: 1px solid red;
+  background-color: #ffeacc;
+  color: black;
+
+  margin: 15px;
+  padding: 2%;
+  align-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+}
+
 .PlantCollection {
   display: flex;
   /* background-color: #d3e0ce; */
