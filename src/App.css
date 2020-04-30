@@ -48,10 +48,10 @@
   width: 70vw;
   flex-wrap: wrap;
   justify-content: space-around;
-  flex-direction: row;
+  flex-direction: column;
   padding: 10px;
 
-  align-content: stretch;
+  align-content: space-evenly;
 
   text-align: center;
 }
@@ -76,6 +76,10 @@
 
 }
 
+.GardenCardDetails {
+  margin: 0 auto;
+  text-align: center;
+}
 .PlantCollection {
   display: flex;
   /* background-color: #d3e0ce; */
