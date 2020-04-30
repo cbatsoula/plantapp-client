@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-
+import GardenCard from './GardenCard.js';
 
 
 class GardenShelf extends React.Component {
 
   listPlants = () => {
-    this.props.myPlants.map( plant => {console.log(plant.plant_name)})
+    return this.props.myPlants.map( plant => { return <GardenCard plant={plant} key={plant.id} /> })
   }
 
   render () {
