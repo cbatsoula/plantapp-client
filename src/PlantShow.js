@@ -36,6 +36,8 @@ class PlantShow extends React.Component {
         <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
         <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
         <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
+
+        <button>Add to your garden</button>
         <h3> Photos</h3></span><br />
         {this.renderImages()}
 
