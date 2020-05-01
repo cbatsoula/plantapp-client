@@ -7,7 +7,7 @@ class GardenCard extends React.Component {
 
 
   render () {
-    console.log("Garden Card Props:", this.props)
+    // console.log("Garden Card Props:", this.props)
     return (
       <div className="GardenCard" onClick={() => {this.props.selectGardenPlant(this.props)}}>
         <div className="GardenCardDetails">

@@ -8,16 +8,18 @@ class GardenShelf extends React.Component {
 
   state = {
     gardenShow: null,
+    currentPlant: null,
   }
 
   listPlants = () => {
     return this.props.myPlants.map( plant => { return <GardenCard plant={plant} gardenShow={this.state.gardenShow} selectGardenPlant={this.selectGardenPlant} key={plant.id} /> })
   }
 
-  selectGardenPlant = () => {
-    console.log("selectGardenPlant!")
+  selectGardenPlant = (props) => {
+    console.log("selectGardenPlant!", props)
     this.setState({
-      gardenShow: !this.state.gardenShow
+      gardenShow: !this.state.gardenShow,
+      currentPlant: props
     }, () => {console.log("selectGardenPlant setSTATE", this.state.gardenShow)})
   }
 
@@ -30,7 +32,7 @@ class GardenShelf extends React.Component {
         {
           this.state.gardenShow
           ?
-          <GardenShow />
+          <GardenShow currentPlant={this.state.currentPlant}/>
           :
           null
         }

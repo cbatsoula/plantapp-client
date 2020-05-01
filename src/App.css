@@ -80,6 +80,12 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.GardenShowContainer {
+  display: flex;
+
+}
+
 .PlantCollection {
   display: flex;
   /* background-color: #d3e0ce; */
