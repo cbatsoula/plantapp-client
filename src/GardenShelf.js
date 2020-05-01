@@ -28,7 +28,7 @@ class GardenShelf extends React.Component {
     return (
       <div className="GardenShelfContainer">
         <span><h3>These are your plants!</h3><br /></span>
-        {this.listPlants()}
+
         {
           this.state.gardenShow
           ?
@@ -36,6 +36,8 @@ class GardenShelf extends React.Component {
           :
           null
         }
+
+        {this.listPlants()}
       </div>
     );
   }

@@ -83,7 +83,22 @@
 
 .GardenShowContainer {
   display: flex;
+  background-color: darkgreen;
+  height: 100%;
+  width: 40vw;
+  flex-wrap: wrap;
+  align-content: stretch;
+  flex-direction: column;
 
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid red;
+
+  /* margin: auto; */
+
+  -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
 }
 
 .PlantCollection {
