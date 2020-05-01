@@ -27,7 +27,7 @@ class PlantShow extends React.Component {
         <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />
         <h3> Scientific name: {this.props.currentPlant.scientific_name ? this.props.currentPlant.scientific_name : "Incomplete data"} </h3><br />
         <h3> Data:{this.props.currentPlant.complete_data ? "Complete" : "Incomplete"} </h3><br />
-        <h3> Class: {this.props.currentPlant.class.name ? this.props.currentPlant.class.name : "Incomplete data"}</h3><br />
+        <h3> Class: {this.props.currentPlant.class ? this.props.currentPlant.class.name : "Incomplete data"}</h3><br />
         <h3> Division: {this.props.currentPlant.division.name ? this.props.currentPlant.division.name : "Incomplete data"}</h3><br />
         <h3> Family: {this.props.currentPlant.family.common_name}, {this.props.currentPlant.family.name}</h3><br />
         <h3> Order: {this.props.currentPlant.order.name}</h3><br />
