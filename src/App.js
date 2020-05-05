@@ -10,6 +10,15 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
 
+  //I need to be able to close any Show component, use a boolean state to toggle when it shows
+
+  //Looks boxy, look up a name and make a ~style~
+    //if logo is possible, add it in Sidebar(home navigation button) and make a Footer?
+
+  
+
+
+
   state = {
     plantdata: null,
     searchTerm: "",
