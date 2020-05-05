@@ -17,12 +17,28 @@ class PlantShow extends React.Component {
 
   addPlant = (props) => {
             // onClick={this.props.handleSearchSubmit}
-    console.log("----------------ADDING PLANT!", props, this.state.repot)
+    console.log("----------------ADDING PLANT!", props.currentPlant.common_name, props.currentPlant.scientific_name, this.state.repot, this.state.startDate)
     //what do i want to save?
     // props.common_name, props.scientific_name, date of today, and any note for potting, user_id me,
     // :plant_name,        :plant_nickname,       :acquired,             :repot,           :owner_id
-
-
+    fetch(`http://localhost:3000/plants`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        plant_name: props.currentPlant.common_name,
+        plant_nickname: props.currentPlant.scientific_name,
+        repot: this.state.repot,
+        acquired: this.state.startDate,
+        owner_id: 1,
+      })
+    })
+      .then(r => r.json())
+      .then( data => {
+        console.log(data)
+      })
   }
 
   handleRepotChange = (event) => {
