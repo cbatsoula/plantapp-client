@@ -1,11 +1,38 @@
 import React from 'react';
 import './App.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 class PlantShow extends React.Component {
 
   //found another api with maybe more complete data, so if thats true, in APP where I get the currentplant's data I need to run a conditional to see if that plant data is complete, if not fetch from this other API. WIll need to likely break down the props bc they will likely not match up in structure.
   //EOL data services -- kind of weird, they dont require a key but still include ?key= in the fetch request and its hard to really browse or make a -proper- request
   //USDA doesnt have a REST API, some individual devs have some progress on making it possible but nothing yet useable
+  state = {
+    repot: null,
+    startDate: new Date(),
+
+
+  }
+
+  addPlant = (props) => {
+            // onClick={this.props.handleSearchSubmit}
+    console.log("----------------ADDING PLANT!", props, this.state.repot)
+    //what do i want to save?
+    // props.common_name, props.scientific_name, date of today, and any note for potting, user_id me,
+    // :plant_name,        :plant_nickname,       :acquired,             :repot,           :owner_id
+
+
+  }
+
+  handleRepotChange = (event) => {
+
+    let fullRepot = (event.target.value);
+    console.log("fullRepot", fullRepot)
+    this.setState({
+      repot: fullRepot,
+    })
+  }
 
   renderImages () {
     if (this.props.currentPlant.images){
@@ -20,8 +47,16 @@ class PlantShow extends React.Component {
     }
   }
 
+  handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
+
+  //could deconstruct these props for readability now that i lifted code from here higher up so all this.props.currentPlant are extra
+
   render () {
-    console.log("in plant show, props:", this.props, "in plant show, state:", this.state)
+    console.log("in plant show, props:", this.props)
     return (
       <div className="PlantShow">
         <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />
@@ -37,7 +72,23 @@ class PlantShow extends React.Component {
         <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
         <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
 
-        <button style={{textDecoration: 'none'}}>Add to your garden</button>
+
+        <input
+        type="text"
+        value={this.state.repot}
+        onChange={this.handleRepotChange}
+        placeholder="Potting situation of new addition"/><br />
+
+        <DatePicker
+        selected={this.state.startDate}
+        onChange={this.handleChange} />
+
+        <button
+        type="submit"
+        onClick={() => {this.addPlant(this.props)}}
+        style={{textDecoration: 'none'}}>Add to your garden</button>
+
+
         <h3> Photos</h3></span><br />
         {this.renderImages()}
 
