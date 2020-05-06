@@ -11,7 +11,10 @@ class Sidebar extends React.Component {
     return (
       <div className="Sidebar">
       <Router>
-        <div className="Sidebar-Search" >
+        <div className="Sidebar-Logo">
+        
+        </div>
+        <div className="Sidebar-Search">
           <input
           type="text"
           value={this.props.searchTerm}
@@ -53,8 +56,8 @@ class Sidebar extends React.Component {
 
           <Link to="/faq"><button style={{textDecoration: 'none'}}>Faq</button></Link>
 
-          <button>Sign In</button>
-          <button>Sign Up</button>
+          <span><Link to="/signin" ><button style={{textDecoration: 'none'}}>Sign In</button></Link>
+          <Link to="/signup" ><button style={{textDecoration: 'none'}}>Sign Up</button></Link></span>
 
         </Router>
       </div>

@@ -16,10 +16,15 @@ class App extends React.Component {
 
   //Looks boxy, look up a name and make a ~style~
     //if logo is possible, add it in Sidebar(home navigation button) and make a Footer?
-    
+
 
   //FUNCTION
   //Work on CRUD with plants
+    //create should work, will come back to it when i can fetch
+    //next delete/destroy
+    //update
+  // Make a form for adding a custom plant, consider a photo uploading feature ... can then track plant progress!!
+  
 
 
 
