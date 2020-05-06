@@ -23,6 +23,13 @@ class GardenShelf extends React.Component {
     }, () => {console.log("selectGardenPlant setSTATE", this.state.gardenShow)})
   }
 
+  closeGardenShow = () => {
+    console.log("CLOSE")
+    this.setState({
+      gardenShow: !this.state.gardenShow,
+    })
+  }
+
   render () {
     console.log("Garden Shelf Props:", this.props)
     return (
@@ -30,7 +37,7 @@ class GardenShelf extends React.Component {
         {
           this.state.gardenShow
           ?
-          <GardenShow currentPlant={this.state.currentPlant}/>
+          <GardenShow closeGardenShow={this.closeGardenShow} gardenShow={this.state.gardenShow} currentPlant={this.state.currentPlant}/>
           :
           null
         }
