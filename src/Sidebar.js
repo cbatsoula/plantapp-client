@@ -11,7 +11,10 @@ class Sidebar extends React.Component {
     return (
       <div className="Sidebar">
       <Router>
-        <div className="Sidebar-Search" >
+        <div className="Sidebar-Logo">
+        
+        </div>
+        <div className="Sidebar-Search">
           <input
           type="text"
           value={this.props.searchTerm}

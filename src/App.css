@@ -37,6 +37,13 @@
 
 }
 
+.Sidebar-Logo {
+  display: flex;
+  background-color: black;
+  height: 15%;
+  width: inherit;
+}
+
 .FaqContainer {
   display: flex;
   /* flex-direction: row; */
