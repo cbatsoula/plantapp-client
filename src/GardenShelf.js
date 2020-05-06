@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import GardenCard from './GardenCard.js';
 import GardenShow from './GardenShow.js';
+import ManualAddPlant from './ManualAddPlant.js';
 
 
 class GardenShelf extends React.Component {
@@ -9,6 +10,7 @@ class GardenShelf extends React.Component {
   state = {
     gardenShow: null,
     currentPlant: null,
+    manualPlant: false,
   }
 
   listPlants = () => {
@@ -30,6 +32,13 @@ class GardenShelf extends React.Component {
     })
   }
 
+  manualTogglePlant = () => {
+     console.log("manualPlant")
+     this.setState({
+       manualPlant: !this.state.manualPlant,
+     })
+  }
+
   render () {
     console.log("Garden Shelf Props:", this.props)
     return (
@@ -41,8 +50,17 @@ class GardenShelf extends React.Component {
           :
           null
         }
+        <button onClick={this.manualTogglePlant} style={{textDecoration: 'none'}}>Manually Add Custom Plant</button>
+        {
+          this.state.manualPlant
+          ?
+          <ManualAddPlant />
+          :
+          null
+        }
         <span><h3>These are your plants!</h3><br /></span>
         {this.listPlants()}
+
       </div>
     );
   }

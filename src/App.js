@@ -14,6 +14,7 @@ class App extends React.Component {
   //I need to be able to close any Show component, use a boolean state to toggle when it shows
     //perhaps it can look like a modal to fade in quickly or something
 
+
   //Looks boxy, look up a name and make a ~style~
     //if logo is possible, add it in Sidebar(home navigation button) and make a Footer?
 
@@ -24,7 +25,7 @@ class App extends React.Component {
     //next delete/destroy
     //update
   // Make a form for adding a custom plant, consider a photo uploading feature ... can then track plant progress!!
-  
+
 
 
 
