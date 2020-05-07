@@ -5,6 +5,24 @@ import './App.css';
 
 class GardenShow extends React.Component {
 
+  deletePlant = (props) => {
+
+    console.log("delete!", props)
+        fetch(`http://localhost:3000/plants/${props.plant.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Methods": "DELETE",
+        "Access-Control-Allow-Origin": "http://localhost"
+      //   "Accept": "application/json",
+      },
+    })
+      .then(r => r.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+
 
   render () {
     console.log("Garden Show Props:", this.props)
@@ -16,7 +34,7 @@ class GardenShow extends React.Component {
       <h3> Repot notes: {this.props.currentPlant.plant.repot}</h3><br /></span>
         <div className="Garden-Buttons">
           <button style={{textDecoration: 'none'}}>Edit</button>
-          <button style={{textDecoration: 'none'}}>Delete</button>
+          <button onClick={() => {this.deletePlant(this.props.currentPlant)}} style={{textDecoration: 'none'}}>Delete</button>
           <button style={{textDecoration: 'none'}}>Propagate!!</button>
         </div>
       </div>
