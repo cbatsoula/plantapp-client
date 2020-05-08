@@ -57,7 +57,7 @@ class PlantShow extends React.Component {
   }
 
   renderImages () {
-    if (this.props.currentPlant.images){
+    if (this.props.currentPlant.images.length > 0){
       console.log("renderImages TRUUUU", this.props.currentPlant.images)
       return this.props.currentPlant.images.map( image => {
         console.log("image", image)
