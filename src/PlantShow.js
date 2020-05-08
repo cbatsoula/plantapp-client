@@ -11,6 +11,8 @@ class PlantShow extends React.Component {
   state = {
     repot: null,
     startDate: new Date(),
+    newPlant: null,
+    success: null,
 
 
   }
@@ -38,6 +40,10 @@ class PlantShow extends React.Component {
       .then(r => r.json())
       .then( data => {
         console.log(data)
+        this.setState({
+          newPlant: data,
+          success: true,
+        })
       })
   }
 
@@ -76,38 +82,46 @@ class PlantShow extends React.Component {
     return (
       <div className="PlantShow">
         <button style={{textDecoration: 'none'}} onClick={this.props.closePlantShow}>Close</button>
-        <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />
-        <h3> Scientific name: {this.props.currentPlant.scientific_name ? this.props.currentPlant.scientific_name : "Incomplete data"} </h3><br />
-        <h3> Data:{this.props.currentPlant.complete_data ? "Complete" : "Incomplete"} </h3><br />
-        <h3> Class: {this.props.currentPlant.class ? this.props.currentPlant.class.name : "Incomplete data"}</h3><br />
-        <h3> Division: {this.props.currentPlant.division ? this.props.currentPlant.division.name : "Incomplete data"}</h3><br />
-        <h3> Family: {this.props.currentPlant.family ? this.props.currentPlant.family.name || this.props.currentPlant.family_common_name : "Incomplete data"} </h3><br />
-        <h3> Order: {this.props.currentPlant.order ? this.props.currentPlant.order.name : "Incomplete data"}</h3><br />
-        <h3> Duration: {this.props.currentPlant.duration}</h3><br />
-        <h3> Flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
-        <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
-        <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
-        <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
+        {
+          this.state.success
+          ?
+          <h3> Woo! You've added a plant to your garden!</h3>
+          :
+          <>
+          <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />
+          <h3> Scientific name: {this.props.currentPlant.scientific_name ? this.props.currentPlant.scientific_name : "Incomplete data"} </h3><br />
+          <h3> Data:{this.props.currentPlant.complete_data ? "Complete" : "Incomplete"} </h3><br />
+          <h3> Class: {this.props.currentPlant.class ? this.props.currentPlant.class.name : "Incomplete data"}</h3><br />
+          <h3> Division: {this.props.currentPlant.division ? this.props.currentPlant.division.name : "Incomplete data"}</h3><br />
+          <h3> Family: {this.props.currentPlant.family ? this.props.currentPlant.family.name || this.props.currentPlant.family_common_name : "Incomplete data"} </h3><br />
+          <h3> Order: {this.props.currentPlant.order ? this.props.currentPlant.order.name : "Incomplete data"}</h3><br />
+          <h3> Duration: {this.props.currentPlant.duration}</h3><br />
+          <h3> Flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
+          <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
+          <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
+          <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br /></span>
+          <input
+          type="text"
+          value={this.state.repot}
+          onChange={this.handleRepotChange}
+          placeholder="Potting situation of new addition"/><br />
+
+          <DatePicker
+          selected={this.state.startDate}
+          onChange={this.handleChange} />
+
+          <button
+          type="submit"
+          onClick={() => {this.addPlant(this.props)}}
+          style={{textDecoration: 'none'}}>Add to your garden</button>
 
 
-        <input
-        type="text"
-        value={this.state.repot}
-        onChange={this.handleRepotChange}
-        placeholder="Potting situation of new addition"/><br />
-
-        <DatePicker
-        selected={this.state.startDate}
-        onChange={this.handleChange} />
-
-        <button
-        type="submit"
-        onClick={() => {this.addPlant(this.props)}}
-        style={{textDecoration: 'none'}}>Add to your garden</button>
+          <span><h3> Photos</h3></span><br />
+          {this.renderImages()}
+          </>
+        }
 
 
-        <h3> Photos</h3></span><br />
-        {this.renderImages()}
 
 
       </div>
