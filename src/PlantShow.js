@@ -81,7 +81,7 @@ class PlantShow extends React.Component {
     console.log("in plant show, props:", this.props)
     return (
       <div className="PlantShow">
-        <button style={{textDecoration: 'none'}} onClick={this.props.closePlantShow}>Close</button>
+        <button className="button-close" style={{textDecoration: 'none'}} onClick={this.props.closePlantShow}>Close</button>
         {
           this.state.success
           ?
@@ -99,7 +99,7 @@ class PlantShow extends React.Component {
           <h3> Flower: {this.props.currentPlant.main_species.flower.color}</h3><br />
           <h3> Foliage: {this.props.currentPlant.main_species.foliage.color},  {this.props.currentPlant.main_species.foliage.porosity_summer}, {this.props.currentPlant.main_species.foliage.texture}</h3><br />
           <h3> Soil: ph min {this.props.currentPlant.main_species.growth.ph_minimum}, ph max {this.props.currentPlant.main_species.growth.ph_maximum}</h3><br />
-          <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br /></span>
+          <h3>Blooms in: {this.props.currentPlant.seed ? this.props.currentPlant.seed.bloom_period : "Incomplete data"}</h3><br />
           <input
           type="text"
           value={this.state.repot}
@@ -116,7 +116,7 @@ class PlantShow extends React.Component {
           style={{textDecoration: 'none'}}>Add to your garden</button>
 
 
-          <span><h3> Photos</h3></span><br />
+          <h3> Photos</h3></span><br />
           {this.renderImages()}
           </>
         }
