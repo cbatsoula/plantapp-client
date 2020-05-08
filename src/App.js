@@ -21,10 +21,11 @@ class App extends React.Component {
 
   //FUNCTION
   //Work on CRUD with plants
-    //create should work, will come back to it when i can fetch
-    //next delete/destroy
+    //create success
+    //delete success
     //update
-  // Make a form for adding a custom plant, consider a photo uploading feature ... can then track plant progress!!
+    // user experience on CRUD !
+  //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos 
 
 
 
