@@ -49,10 +49,10 @@ class PlantCard extends React.Component {
 
 
   render () {
-    // console.log("plant card", this.props)
+    console.log("plant card", this.props)
 
     return (
-      <div className="PlantCard" onClick={() => {this.props.selectPlant(this.props.plantInfo)}}>
+      <div className="PlantCard" onClick={() => {this.props.selectPlant(this.props.plantInfo.id)}}>
         <div className="PlantCardDetails">
         <span>
           <h3>{this.props.plantInfo.common_name ? this.props.plantInfo.common_name : "no common name"}</h3><br />

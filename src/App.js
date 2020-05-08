@@ -25,7 +25,7 @@ class App extends React.Component {
     //delete success
     //update
     // user experience on CRUD !
-  //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos 
+  //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos
 
 
 
@@ -60,9 +60,9 @@ class App extends React.Component {
       })
   }
 
-  selectPlant = (props) => {
+  selectPlant = (propsID) => {
 
-    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${props.id}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants/${propsID}?token=${process.env.REACT_APP_TREFLE_API_KEY}`)
       .then( r => r.json())
       .then( data => {
         console.log("APP id fetch data response", data)
@@ -195,6 +195,13 @@ class App extends React.Component {
 
  }
 
+ closePlantShow = () => {
+   console.log("cLOSE")
+   this.setState({
+     showing: !this.state.showing,
+   }, () => {console.log("CLOSE AFTER", this.state.showing)})
+ }
+
 
   render () {
     console.log("here it is from APP", this.state)
@@ -226,7 +233,7 @@ class App extends React.Component {
         {
           this.state.showing
           ?
-          <PlantShow currentPlant={this.state.currentPlant} showing={this.state.showing}/>
+          <PlantShow closePlantShow={this.closePlantShow} currentPlant={this.state.currentPlant} showing={this.state.showing}/>
           :
           null
         }
