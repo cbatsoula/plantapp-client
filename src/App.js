@@ -25,6 +25,7 @@ class App extends React.Component {
     //delete success
     //update
     // user experience on CRUD !
+  //create plant from plant search, after it saves render within the plantShow a confirmation of plant creation, "Woo! You've added a #{plant name} to your garden!"
   //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos
 
 

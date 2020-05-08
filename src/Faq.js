@@ -3,7 +3,7 @@ import './App.css';
 
 
 class Faq extends React.Component {
-
+  //Verdure = green vegetation, especially grass or herbage. freshness in general; flourishing condition; vigor.
   //How do I use?
   // to browse plants you may search by scientific_name if you know what you want to look for
   //to browse plants without prior knowledge -- implement filtering options -- check API
