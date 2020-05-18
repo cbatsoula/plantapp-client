@@ -85,7 +85,10 @@ class PlantShow extends React.Component {
         {
           this.state.success
           ?
-          <h3> Woo! You've added a plant to your garden!</h3>
+          <>
+          <h3> Woo! You've added {this.props.currentPlant.scientific_name} to your garden!</h3>
+          <button>See your garden</button>
+          </>
           :
           <>
           <span><h3> Common name: {this.props.currentPlant.common_name ? this.props.currentPlant.common_name : "Incomplete data"} </h3><br />

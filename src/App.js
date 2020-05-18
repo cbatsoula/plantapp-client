@@ -20,6 +20,9 @@ class App extends React.Component {
 
 
   //FUNCTION
+  // can view both plant collection and garden collection at the same time - dont want this,
+  // i need to make these components line up so that the show is always "taken" this would work best
+  // for comparing photos between plants (what i just did for campanulas to find mine - did not) 
   //Work on CRUD with plants
     //create success
     //delete success
