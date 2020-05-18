@@ -115,7 +115,26 @@
 
 }
 .ManualAddDetails {
+  display: flex;
 
+}
+
+.GardenAndAdd {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 40vw;
+  height: 15vh;
+  border: 1px solid red;
+  margin: 10px;
+  padding: 20px;
+}
+
+.AddCustomPlant {
+  background-color: #4CAF50; /* Green */
+  height: 7vh;
+  width: 10vw;
+  margin: 10px;
 }
 
 .ManualAddPlantContainer {
