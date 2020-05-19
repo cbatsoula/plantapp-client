@@ -149,7 +149,7 @@
 .PlantCollection {
   display: flex;
   /* background-color: #d3e0ce; */
-  height: 100vh;
+  height: 100%;
   width: 80vw;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -160,6 +160,15 @@
   align-content: stretch;
 
   text-align: center;
+}
+
+.noData {
+  display: flex;
+  height: 10vh;
+  width: 100vw;
+  text-align: center;
+  z-index: 5;
+  color: red;
 }
 
 .PlantCard {

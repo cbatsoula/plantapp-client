@@ -20,7 +20,10 @@ class PlantCollection extends React.Component {
       {
         this.props.someData
         ?
-        this.renderCards()
+        <>
+        <span><h3>These are the results for {this.props.searchTerm}</h3></span><br />
+        {this.renderCards()}
+        </>
         :
         null
       }
