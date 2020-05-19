@@ -22,7 +22,7 @@ class App extends React.Component {
   //FUNCTION
   // can view both plant collection and garden collection at the same time - dont want this,
   // i need to make these components line up so that the show is always "taken" this would work best
-  // for comparing photos between plants (what i just did for campanulas to find mine - did not) 
+  // for comparing photos between plants (what i just did for campanulas to find mine - did not)
   //Work on CRUD with plants
     //create success
     //delete success
@@ -43,6 +43,7 @@ class App extends React.Component {
     bloom_period: null,
     gardenOnClick: false,
     myPlants: null,
+    nodata: null,
   }
 
 
@@ -103,6 +104,12 @@ class App extends React.Component {
           .then( r => r.json())
           .then( data => {
             console.log("where are you", data)
+            //if data.length === 0 have an error message pop up saying, please edit the search criteria
+            if (data.length === 0) {
+              this.setState({
+                nodata: true,
+              })
+            }
             this.setState({
               plantdata: data,
               currentPlant: null,
@@ -225,9 +232,17 @@ class App extends React.Component {
         gardenOnClick={this.gardenOnClick}/>
 
         {
+          this.state.nodata
+          ?
+          <div className="noData"> please edit the search criteria </div>
+          :
+          null
+        }
+        {
           this.state.plantdata
           ?
           <PlantCollection
+          searchTerm={this.state.searchTerm}
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
           :
