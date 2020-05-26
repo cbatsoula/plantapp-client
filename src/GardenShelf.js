@@ -63,10 +63,12 @@ class GardenShelf extends React.Component {
             :
             null
           }
-          <span><h3>These are your plants!</h3><br /></span>
-          <span><h3>You have {this.numberPlants()} plants</h3><br /></span>
           </div>
-          {this.listPlants()}
+          <div className="GardenCardContainer">
+            <span><h3>These are your plants!</h3><br /></span>
+            <span><h3>You have {this.numberPlants()} plants</h3><br /></span>
+            {this.listPlants()}
+          </div>
 
       </div>
     );

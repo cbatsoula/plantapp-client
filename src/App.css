@@ -1,6 +1,8 @@
 .App {
   display: flex;
   background-color: #a0b39a;
+  /* position: relative; */
+  width: 100%;
   height: 100vh;
 }
 
@@ -18,7 +20,7 @@
 .Sidebar {
   display: flex;
   height: 100vh;
-  width: 15vw;
+  width: 15%;
   background-color: #ebf2fa;
   padding: 25px;
   flex-wrap: wrap;
@@ -42,7 +44,7 @@
 .Sidebar-Logo {
   display: flex;
   background-color: black;
-  height: 15%;
+  height: 15vh;
   width: inherit;
 }
 
@@ -51,16 +53,22 @@
   /* flex-direction: row; */
 }
 
+.GardenCardContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
 .GardenShelfContainer {
   display: flex;
   height: 100vh;
-  width: 70vw;
+  width: 70%;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
   padding: 10px;
 
-  align-content: space-evenly;
+  align-content: stretch;
 
   text-align: center;
 }
@@ -68,7 +76,7 @@
 .GardenCard {
   display: flex;
   height: 30vh;
-  width: 30vw;
+  width: 30%;
   border: 1px solid #427aa1;
   background-color: #ffeacc;
   color: black;
@@ -94,7 +102,7 @@
   display: flex;
   background-color: #427aa1;
   height: 100vh;
-  width: 40vw;
+  width: 40%;
   flex-wrap: wrap;
   align-content: stretch;
   flex-direction: column;
@@ -125,7 +133,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 40vw;
+  width: 40%;
   height: 15vh;
   border: 1px solid red;
   margin: 10px;
@@ -142,13 +150,13 @@
 .ManualAddPlantContainer {
   display: flex;
   height: 50vh;
-  width: 100vw;
+  width: 100%;
   background-color: grey;
 }
 
 .PlantCollection {
   display: flex;
-  /* background-color: #d3e0ce; */
+  background-color: #d3e0ce;
   height: 100%;
   width: 80vw;
   flex-wrap: wrap;
@@ -165,7 +173,7 @@
 .noData {
   display: flex;
   height: 10vh;
-  width: 100vw;
+  width: 100%;
   text-align: center;
   z-index: 5;
   color: red;
@@ -208,8 +216,8 @@
 .PlantShow {
   display: flex;
   background-color: #a5be00;
-  height: 100%;
-  width: 50vw;
+  height: 100vh;
+  width: 50%;
   flex-wrap: wrap;
   align-content: stretch;
   flex-direction: row;
