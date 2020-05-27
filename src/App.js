@@ -44,6 +44,7 @@ class App extends React.Component {
     gardenOnClick: false,
     myPlants: null,
     nodata: null,
+    pastplantdata: null,
   }
 
 
@@ -201,8 +202,10 @@ class App extends React.Component {
  gardenOnClick = () => {
    console.log("gardenOnClick!!!")
    this.setState({
-     gardenOnClick: !this.state.gardenOnClick
-   }, () => {console.log("gardenOnClick", this.state.gardenOnClick)})
+     gardenOnClick: !this.state.gardenOnClick,
+     pastplantdata: this.state.plantdata,
+     plantdata: null,
+   }, () => {console.log("gardenOnClick", this.state)})
 
  }
 
@@ -276,7 +279,7 @@ class App extends React.Component {
 
 
         </div>
-      // 
+      //
       // </>
     );
   }
