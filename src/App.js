@@ -217,11 +217,11 @@ class App extends React.Component {
   render () {
     console.log("here it is from APP", this.state)
     return (
-      <>
+      // <>
 
         <div className="App">
 
-        <Sidebar
+          <Sidebar
         handleSearchSubmit={this.handleSearchSubmit}
         handleSearchChange={this.handleSearchChange}
         searchTerm={this.state.searchTerm}
@@ -247,6 +247,7 @@ class App extends React.Component {
           someData={this.state.plantdata} />
           :
           null
+          //if i have plant data, render plantCollection, if not, dont render anything..aka for default just show the logo?
         }
 
         {
@@ -254,7 +255,8 @@ class App extends React.Component {
           ?
           <PlantShow closePlantShow={this.closePlantShow} currentPlant={this.state.currentPlant} showing={this.state.showing}/>
           :
-          null
+          <h1>HELLO WORLD</h1>
+          //if i have a currentPlant I want to see the details, if I dont have a current plant, show nothing
         }
 
           <Switch>
@@ -266,6 +268,7 @@ class App extends React.Component {
               <GardenShelf myPlants={this.state.myPlants}  />
               :
               null
+              //logo?
             }
 
 
@@ -273,8 +276,8 @@ class App extends React.Component {
 
 
         </div>
-
-      </>
+      // 
+      // </>
     );
   }
 
