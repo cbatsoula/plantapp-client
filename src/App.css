@@ -1,14 +1,14 @@
 .App {
   display: flex;
-  background-color: #a0b39a;
-  /* position: relative; */
+  /* background-color: #a0b39a; */
+
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,7 @@
 
 .Sidebar {
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 15%;
   background-color: #ebf2fa;
   padding: 25px;
@@ -56,12 +56,12 @@
 .GardenCardContainer {
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .GardenShelfContainer {
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 70%;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -101,7 +101,7 @@
 .GardenShowContainer {
   display: flex;
   background-color: #427aa1;
-  height: 100vh;
+  height: 100%;
   width: 40%;
   flex-wrap: wrap;
   align-content: stretch;
@@ -158,7 +158,7 @@
   display: flex;
   background-color: #d3e0ce;
   height: 100%;
-  width: 80vw;
+  width: 80%;
   flex-wrap: wrap;
   justify-content: space-around;
   flex-direction: row;
@@ -216,7 +216,7 @@
 .PlantShow {
   display: flex;
   background-color: #a5be00;
-  height: 100vh;
+  height: 100%;
   width: 50%;
   flex-wrap: wrap;
   align-content: stretch;
