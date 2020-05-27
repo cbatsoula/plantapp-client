@@ -114,6 +114,7 @@ class App extends React.Component {
             this.setState({
               plantdata: data,
               currentPlant: null,
+              gardenOnClick: false,
             })
           })
           .catch(error => {
@@ -205,6 +206,8 @@ class App extends React.Component {
      gardenOnClick: !this.state.gardenOnClick,
      pastplantdata: this.state.plantdata,
      plantdata: null,
+     showing: null,
+     searchTerm: "",
    }, () => {console.log("gardenOnClick", this.state)})
 
  }
@@ -258,7 +261,8 @@ class App extends React.Component {
           ?
           <PlantShow closePlantShow={this.closePlantShow} currentPlant={this.state.currentPlant} showing={this.state.showing}/>
           :
-          <h1>HELLO WORLD</h1>
+          null
+          // <h1>HELLO WORLD</h1>
           //if i have a currentPlant I want to see the details, if I dont have a current plant, show nothing
         }
 
