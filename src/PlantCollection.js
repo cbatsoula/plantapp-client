@@ -21,7 +21,7 @@ class PlantCollection extends React.Component {
         this.props.someData
         ?
         <>
-        <span><h3>These are the results for {this.props.searchTerm}</h3></span><br />
+        <span><h3>These are the results for {this.props.pastSearchTerm}</h3></span><br />
         {this.renderCards()}
         </>
         :

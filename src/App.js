@@ -45,6 +45,7 @@ class App extends React.Component {
     myPlants: null,
     nodata: null,
     pastplantdata: null,
+    pastSearchTerm: "",
   }
 
 
@@ -115,6 +116,8 @@ class App extends React.Component {
               plantdata: data,
               currentPlant: null,
               gardenOnClick: false,
+              pastSearchTerm: this.state.searchTerm,
+              searchTerm: "",
             })
           })
           .catch(error => {
@@ -248,7 +251,7 @@ class App extends React.Component {
           this.state.plantdata
           ?
           <PlantCollection
-          searchTerm={this.state.searchTerm}
+          pastSearchTerm={this.state.pastSearchTerm}
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
           :
