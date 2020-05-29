@@ -33,6 +33,13 @@ class App extends React.Component {
      // "frost_free_days_minimum"   THIS gives me the plant's hardiness zone - INCLUDE in Faq
      //"native_status": "L48(N)AK(N)CAN(N)",// native code status N native, states follow, AK Alaska, CAN Canada
 
+     //https://trefle.io/api/plants?native_status=L48(N)&complete_data=true&{TOKEN}&page=2
+     //plants native to the lower 48 states, with all complete data, multiple pages
+
+     //https://trefle.io/api/plants?frost_free_days_minimum=265&{TOKEN}
+
+     //emailed trefle.io again, some results come back that are incorrect and when I go on to correct that entry through their docs they already have a corrected item but it did not come up in my response data set
+
     // 2  are you looking for... and through this I make a fetch request with params of family/division and temps?
     //something that has flowers?
     //something that produces fruit?
