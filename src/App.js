@@ -12,6 +12,7 @@ class App extends React.Component {
 
   //STYLE
 
+  // within any plant show page, I want to be able to HOVER over a term, and see a pop up/modal box with a definition, aka plant heriachy what each term of class or division means, aka, fruit bearing or something along those lines so when  someone sees a word they do not recognise, they still get the jist of it.
 
   //Looks boxy, look up a name and make a ~style~
     //if logo is possible, add it in Sidebar(home navigation button) and make a Footer?
@@ -22,14 +23,17 @@ class App extends React.Component {
     //I can't find an API with a hardiness zone parameter so is it worth it to generate the user's hardiness zone? what use is it? I could add links for further reading on that, but thats about it.
     //make a disclaimer that the results given should be researched further before commiting to a plant because the APIs I'm using are not complete with data and may have incorrect data.
 
-    //what state/zipcode do you live in?
+    // 1  what state/zipcode do you live in?
     //look up zone, spit it into a results obj
     //temperature mins and maxs? aka params
      // "temperature_minimum": {
      //    "deg_c": null,
      //    "deg_f": null
      //  }
-    //are you looking for... and through this I make a fetch request with params of family/division and temps?
+     // "frost_free_days_minimum"   THIS gives me the plant's hardiness zone - INCLUDE in Faq
+     //"native_status": "L48(N)AK(N)CAN(N)",// native code status N native, states follow, AK Alaska, CAN Canada
+
+    // 2  are you looking for... and through this I make a fetch request with params of family/division and temps?
     //something that has flowers?
     //something that produces fruit?
     // an herb?
@@ -50,11 +54,41 @@ class App extends React.Component {
     //   "veneer": null
     // }
 
+    // "specifications": {
+    //   "bloat": "None",
+    //   "c_n_ratio": null,
+    //   "coppice_potential": null,
+    //   "fall_conspicuous": null,
+    //   "fire_resistance": null,
+
+    //   "growth_form": "Single Stem",
+    //   "growth_habit": "Forb/herb",
+    //   "growth_period": "Spring and Summer",
+    //   "growth_rate": "Slow",
+
+    //   "known_allelopath": null,
+    //   "leaf_retention": null,
+    //   "lifespan": "Moderate",
+    //   "low_growing_grass": null,
+    //   "mature_height": {
+    //     "cm": 60.95702529716549,
+    //     "ft": 2.0
+    //   },
+    //   "max_height_at_base_age": {
+    //     "cm": null,
+    //     "ft": null
+    //   },
+    //   "nitrogen_fixation": "None",
+    //   "regrowth_rate": "Slow",
+    //   "shape_and_orientation": "Erect",
+    //   "toxicity": "None"
+    // },
+
     //sun type?/soil type?
     //full
     //partial
     //low?
-    // "shade_tolerance": "Intermediate",
+    // "shade_tolerance": "Intolerant", "Intermediate", ??
     // "soils_adaptation": {
     //   "coarse": true,
     //   "fine": null,
@@ -64,7 +98,7 @@ class App extends React.Component {
   //Work on CRUD with plants
     //update
     // user experience on CRUD !
-  //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos
+  //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos with date stamps? or a date picker along with photo upload and then spit out the date under the photo?
 
 
 
