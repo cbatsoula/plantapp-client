@@ -11,8 +11,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 class App extends React.Component {
 
   //STYLE
-  //I need to be able to close any Show component, use a boolean state to toggle when it shows
-    //perhaps it can look like a modal to fade in quickly or something
 
 
   //Looks boxy, look up a name and make a ~style~
@@ -20,15 +18,52 @@ class App extends React.Component {
 
 
   //FUNCTION
-  // can view both plant collection and garden collection at the same time - dont want this,
-  // i need to make these components line up so that the show is always "taken" this would work best
-  // for comparing photos between plants (what i just did for campanulas to find mine - did not)
+  //Quiz to generate plants that could work for your space
+    //I can't find an API with a hardiness zone parameter so is it worth it to generate the user's hardiness zone? what use is it? I could add links for further reading on that, but thats about it.
+    //make a disclaimer that the results given should be researched further before commiting to a plant because the APIs I'm using are not complete with data and may have incorrect data.
+
+    //what state/zipcode do you live in?
+    //look up zone, spit it into a results obj
+    //temperature mins and maxs? aka params
+     // "temperature_minimum": {
+     //    "deg_c": null,
+     //    "deg_f": null
+     //  }
+    //are you looking for... and through this I make a fetch request with params of family/division and temps?
+    //something that has flowers?
+    //something that produces fruit?
+    // an herb?
+    // "products": {
+    //   "berry_nut_seed": null,
+    //   "christmas_tree": null,
+    //   "fodder": null,
+    //   "fuelwood": null,
+    //   "lumber": null,
+    //   "naval_store": null,
+    //   "nursery_stock": null,
+    //   "palatable_browse_animal": null,
+    //   "palatable_graze_animal": null,
+    //   "palatable_human": null,
+    //   "post": null,
+    //   "protein_potential": null,
+    //   "pulpwood": null,
+    //   "veneer": null
+    // }
+
+    //sun type?/soil type?
+    //full
+    //partial
+    //low?
+    // "shade_tolerance": "Intermediate",
+    // "soils_adaptation": {
+    //   "coarse": true,
+    //   "fine": null,
+    //   "medium": true
+    // },
+
   //Work on CRUD with plants
-    //create success
-    //delete success
     //update
     // user experience on CRUD !
-  //create plant from plant search, after it saves render within the plantShow a confirmation of plant creation, "Woo! You've added a #{plant name} to your garden!"
   //Adding(post) custom plant form success, consider a photo uploading feature ... can then track plant progress!! would need to display photos
 
 
