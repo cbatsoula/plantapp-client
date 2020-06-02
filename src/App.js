@@ -3,8 +3,9 @@ import './App.css';
 import Sidebar from './Sidebar.js';
 import PlantCollection from './PlantCollection.js';
 import PlantShow from './PlantShow.js';
-import Faq from './Faq.js'
-import GardenShelf from './GardenShelf.js'
+import Faq from './Faq.js';
+import GardenShelf from './GardenShelf.js';
+import Quiz from './Quiz.js';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -24,7 +25,19 @@ class App extends React.Component {
     //make a disclaimer that the results given should be researched further before commiting to a plant because the APIs I'm using are not complete with data and may have incorrect data.
 
     // 1  what state/zipcode do you live in?
-    //look up zone, spit it into a results obj
+    //input zipcode, run fetch,
+      //// https://phzmapi.org/11230.json
+
+          // {
+          //   "zone": "7b",
+          //   "coordinates": {
+          //     "lat": 40.64,
+          //     "lon": -73.94
+          //   },
+          //   "temperature_range": "5 to 10"
+          // }
+          //recieve temp_range, split the string for min temp 5, min temp 10, and run two trefle.io requests based on the "two" mins (i want to show as many relevent results as i can)
+
     //temperature mins and maxs? aka params
      // "temperature_minimum": {
      //    "deg_c": null,
@@ -122,6 +135,7 @@ class App extends React.Component {
     nodata: null,
     pastplantdata: null,
     pastSearchTerm: "",
+    quizToggle: null,
   }
 
 
@@ -314,7 +328,8 @@ class App extends React.Component {
         value={this.state.value}
         bloom_period={this.state.bloom_period}
         handleBloomChange={this.handleBloomChange}
-        gardenOnClick={this.gardenOnClick}/>
+        gardenOnClick={this.gardenOnClick}
+        />
 
         {
           this.state.nodata
@@ -331,7 +346,7 @@ class App extends React.Component {
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
           :
-          null
+          <Quiz quizToggle={this.state.quizToggle}/>
           //if i have plant data, render plantCollection, if not, dont render anything..aka for default just show the logo?
         }
 
