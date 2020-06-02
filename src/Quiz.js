@@ -21,6 +21,12 @@ class Quiz extends React.Component {
   answerSubmit = (event) => {
     event.preventDefault();
     console.log("submittin", event.target.name)
+    let realZip = Number(this.state.zipcode.answer)
+    console.log(realZip)
+    fetch(`https://phzmapi.org/{realZip}.json`)
+      .then( r => {
+        console.log("Temps", r)
+      })
 
 
   }
@@ -30,7 +36,7 @@ class Quiz extends React.Component {
   }
 
   render() {
-    console.log("QUIZ", this.props)
+    console.log("QUIZ", this.state)
     return (
       <>
       <div className="QuizContainer">
