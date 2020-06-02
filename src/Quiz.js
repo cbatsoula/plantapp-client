@@ -7,6 +7,7 @@ class Quiz extends React.Component {
     zipcode: {
       question: "What zipcode are you gardening in?",
       answer: "",
+      data: null,
     }
 
   }
@@ -23,9 +24,13 @@ class Quiz extends React.Component {
     console.log("submittin", event.target.name)
     let realZip = Number(this.state.zipcode.answer)
     console.log(realZip)
-    fetch(`https://phzmapi.org/{realZip}.json`)
-      .then( r => {
-        console.log("Temps", r)
+    fetch(`https://cors-anywhere.herokuapp.com/https://phzmapi.org/${realZip}.json`)
+      .then( r => r.json())
+      .then( data => {
+        console.log("Temps", data)
+        this.setState({
+          data: data
+        })
       })
 
 
