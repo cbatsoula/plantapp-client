@@ -21,35 +21,22 @@ class App extends React.Component {
 
   //FUNCTION
   //Quiz to generate plants that could work for your space
-    //I can't find an API with a hardiness zone parameter so is it worth it to generate the user's hardiness zone? what use is it? I could add links for further reading on that, but thats about it.
     //make a disclaimer that the results given should be researched further before commiting to a plant because the APIs I'm using are not complete with data and may have incorrect data.
-
+    //maybe for each Q generate a dataset for it specifically - could def look weird
+    //only 5 results returned for the plants based on temps - more from frost_free_days so I do need more Qs to generate a larger array
     // 1  what state/zipcode do you live in?
-    //input zipcode, run fetch,
-      //// https://phzmapi.org/11230.json
 
-          // {
-          //   "zone": "7b",
-          //   "coordinates": {
-          //     "lat": 40.64,
-          //     "lon": -73.94
-          //   },
-          //   "temperature_range": "5 to 10"
-          // }
-          //recieve temp_range, split the string for min temp 5, min temp 10, and run two trefle.io requests based on the "two" mins (i want to show as many relevent results as i can)
 
-    //temperature mins and maxs? aka params
-     // "temperature_minimum": {
-     //    "deg_c": null,
-     //    "deg_f": null
-     //  }
      // "frost_free_days_minimum"   THIS gives me the plant's hardiness zone - INCLUDE in Faq
+     //ask how many frost free days do you experience?
+     //include chart
+     
      //"native_status": "L48(N)AK(N)CAN(N)",// native code status N native, states follow, AK Alaska, CAN Canada
 
      //https://trefle.io/api/plants?native_status=L48(N)&complete_data=true&{TOKEN}&page=2
      //plants native to the lower 48 states, with all complete data, multiple pages
 
-     //https://trefle.io/api/plants?frost_free_days_minimum=265&{TOKEN}
+     //https://trefle.io/api/plants?frost_free_days_minimum=230&{TOKEN}
 
      //emailed trefle.io again, some results come back that are incorrect and when I go on to correct that entry through their docs they already have a corrected item but it did not come up in my response data set
 
@@ -346,7 +333,7 @@ class App extends React.Component {
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
           :
-          <Quiz quizToggle={this.state.quizToggle}/>
+          <Quiz selectPlant={this.selectPlant} quizToggle={this.state.quizToggle}/>
           //if i have plant data, render plantCollection, if not, dont render anything..aka for default just show the logo?
         }
 

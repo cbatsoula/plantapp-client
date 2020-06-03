@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
+import PlantCollection from './PlantCollection.js';
+import PlantCard from './PlantCard.js';
 
 class Quiz extends React.Component {
 
   state = {
     zipcode: {
       question: "What zipcode are you gardening in?",
+      answer: "",
+    },
+    frostFree: {
+      question: "Average number of frost free days you experience",
       answer: "",
     },
     data: null,
@@ -45,6 +51,17 @@ class Quiz extends React.Component {
             plantData: [...this.state.plantData, ...pdata]
           })
         })
+
+        let frostFreeDays = Number(this.state.frostFree.answer)
+        console.log("frostFreeDays", frostFreeDays)
+
+        fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?frost_free_days_minimum=${frostFreeDays}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+          .then( r => r.json())
+          .then( pdata => {
+            this.setState({
+              plantData: [...this.state.plantData, ...pdata]
+            })
+          })
   }
 
   answerSubmit = (event) => {
@@ -82,8 +99,23 @@ class Quiz extends React.Component {
            type="text"
            placeholder="please type your answer here"/></p>
 
+        <p>2. {this.state.frostFree.question}
+          <input
+             onChange={this.answerChange}
+             name="frostFree"
+             value={this.state.frostFree.answer}
+             type="text"
+             placeholder="please type your answer here"/></p>
+
          <input type="submit" value="Submit" />
        </form>
+       {
+         this.state.plantData.length
+         ?
+         <PlantCollection selectPlant={this.props.selectPlant} pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
+         :
+         null
+       }
       </div>
       </>
 
