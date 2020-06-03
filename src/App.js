@@ -30,7 +30,7 @@ class App extends React.Component {
      // "frost_free_days_minimum"   THIS gives me the plant's hardiness zone - INCLUDE in Faq
      //ask how many frost free days do you experience?
      //include chart
-     
+
      //"native_status": "L48(N)AK(N)CAN(N)",// native code status N native, states follow, AK Alaska, CAN Canada
 
      //https://trefle.io/api/plants?native_status=L48(N)&complete_data=true&{TOKEN}&page=2
@@ -299,6 +299,11 @@ class App extends React.Component {
    }, () => {console.log("CLOSE AFTER", this.state.showing)})
  }
 
+  nextPage = (event) => {
+    event.preventDefault()
+    console.log("nextPage!")
+  }
+
 
   render () {
     console.log("here it is from APP", this.state)
@@ -331,7 +336,8 @@ class App extends React.Component {
           <PlantCollection
           pastSearchTerm={this.state.pastSearchTerm}
           selectPlant={this.selectPlant}
-          someData={this.state.plantdata} />
+          someData={this.state.plantdata}
+          nextPage={this.nextPage} />
           :
           <Quiz selectPlant={this.selectPlant} quizToggle={this.state.quizToggle}/>
           //if i have plant data, render plantCollection, if not, dont render anything..aka for default just show the logo?
