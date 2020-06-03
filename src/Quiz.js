@@ -7,8 +7,9 @@ class Quiz extends React.Component {
     zipcode: {
       question: "What zipcode are you gardening in?",
       answer: "",
-      data: null,
-    }
+    },
+    data: null,
+
 
   }
 
@@ -17,6 +18,16 @@ class Quiz extends React.Component {
     this.setState({
       [event.target.name]: {...this.state[event.target.name], answer: event.target.value},
     })
+  }
+
+  minTemperature = () => {
+    console.log("minTemps", this.state.data)
+    let minTemps = this.state.data.temperature_range.split(' ')
+    console.log("minTemps", minTemps)
+    let minHigh = Number(minTemps.pop())
+    console.log("MinHigh", minHigh)
+    let minLow = Number(minTemps[0])
+    console.log(typeof minLow)
   }
 
   answerSubmit = (event) => {
@@ -30,7 +41,7 @@ class Quiz extends React.Component {
         console.log("Temps", data)
         this.setState({
           data: data
-        })
+        }, () => {this.minTemperature()})
       })
 
 
