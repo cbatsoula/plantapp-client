@@ -28,6 +28,9 @@ class App extends React.Component {
 
 
      // "frost_free_days_minimum"   THIS gives me the plant's hardiness zone - INCLUDE in Faq
+     //ask how many frost free days do you experience?
+     //include chart
+     
      //"native_status": "L48(N)AK(N)CAN(N)",// native code status N native, states follow, AK Alaska, CAN Canada
 
      //https://trefle.io/api/plants?native_status=L48(N)&complete_data=true&{TOKEN}&page=2
