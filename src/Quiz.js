@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import PlantCollection from './PlantCollection.js';
+import PlantCard from './PlantCard.js';
 
 class Quiz extends React.Component {
 
@@ -84,6 +86,13 @@ class Quiz extends React.Component {
 
          <input type="submit" value="Submit" />
        </form>
+       {
+         this.state.plantData.length
+         ?
+         <PlantCollection pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
+         :
+         null
+       }
       </div>
       </>
 
