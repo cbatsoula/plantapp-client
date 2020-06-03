@@ -21,8 +21,10 @@ class PlantCollection extends React.Component {
         this.props.someData
         ?
         <>
-        <span><h3>These are the results for {this.props.pastSearchTerm}</h3></span><br />
+        <h3>These are the results for {this.props.pastSearchTerm}</h3><br />
+        <button onClick={this.props.prevPage}>Previous</button>
         {this.renderCards()}
+        <button onClick={this.props.nextPage}>Next</button>
         </>
         :
         null

@@ -109,14 +109,14 @@ class Quiz extends React.Component {
 
          <input type="submit" value="Submit" />
        </form>
-       {
-         this.state.plantData.length
-         ?
-         <PlantCollection selectPlant={this.props.selectPlant} pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
-         :
-         null
-       }
       </div>
+      {
+        this.state.plantData.length
+        ?
+        <PlantCollection selectPlant={this.props.selectPlant} pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
+        :
+        null
+      }
       </>
 
     )
