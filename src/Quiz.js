@@ -9,12 +9,13 @@ class Quiz extends React.Component {
       answer: "",
     },
     data: null,
+    plantData: [],
 
 
   }
 
   answerChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.setState({
       [event.target.name]: {...this.state[event.target.name], answer: event.target.value},
     })
@@ -28,6 +29,22 @@ class Quiz extends React.Component {
     console.log("MinHigh", minHigh)
     let minLow = Number(minTemps[0])
     console.log(typeof minLow)
+
+    // temperature_minimum
+    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?temperature_minimum_deg_f=${minLow}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+      .then( r => r.json())
+      .then( pdata => {
+        this.setState({
+          plantData: [...this.state.plantData, ...pdata]
+        })
+      })
+      fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?temperature_minimum_deg_f=${minHigh}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+        .then( r => r.json())
+        .then( pdata => {
+          this.setState({
+            plantData: [...this.state.plantData, ...pdata]
+          })
+        })
   }
 
   answerSubmit = (event) => {
