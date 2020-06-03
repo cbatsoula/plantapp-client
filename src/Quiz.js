@@ -7,16 +7,44 @@ class Quiz extends React.Component {
     zipcode: {
       question: "What zipcode are you gardening in?",
       answer: "",
-      data: null,
-    }
+    },
+    data: null,
+    plantData: [],
+
 
   }
 
   answerChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.setState({
       [event.target.name]: {...this.state[event.target.name], answer: event.target.value},
     })
+  }
+
+  minTemperature = () => {
+    console.log("minTemps", this.state.data)
+    let minTemps = this.state.data.temperature_range.split(' ')
+    console.log("minTemps", minTemps)
+    let minHigh = Number(minTemps.pop())
+    console.log("MinHigh", minHigh)
+    let minLow = Number(minTemps[0])
+    console.log(typeof minLow)
+
+    // temperature_minimum
+    fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?temperature_minimum_deg_f=${minLow}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+      .then( r => r.json())
+      .then( pdata => {
+        this.setState({
+          plantData: [...this.state.plantData, ...pdata]
+        })
+      })
+      fetch(`https://cors-anywhere.herokuapp.com/https://trefle.io/api/plants?temperature_minimum_deg_f=${minHigh}&token=${process.env.REACT_APP_TREFLE_API_KEY}`)
+        .then( r => r.json())
+        .then( pdata => {
+          this.setState({
+            plantData: [...this.state.plantData, ...pdata]
+          })
+        })
   }
 
   answerSubmit = (event) => {
@@ -30,7 +58,7 @@ class Quiz extends React.Component {
         console.log("Temps", data)
         this.setState({
           data: data
-        })
+        }, () => {this.minTemperature()})
       })
 
 
