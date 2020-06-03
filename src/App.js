@@ -330,7 +330,7 @@ class App extends React.Component {
           selectPlant={this.selectPlant}
           someData={this.state.plantdata} />
           :
-          <Quiz quizToggle={this.state.quizToggle}/>
+          <Quiz selectPlant={this.selectPlant} quizToggle={this.state.quizToggle}/>
           //if i have plant data, render plantCollection, if not, dont render anything..aka for default just show the logo?
         }
 

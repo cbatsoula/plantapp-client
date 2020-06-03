@@ -89,7 +89,7 @@ class Quiz extends React.Component {
        {
          this.state.plantData.length
          ?
-         <PlantCollection pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
+         <PlantCollection selectPlant={this.props.selectPlant} pastSearchTerm={this.state.zipcode.answer} someData={this.state.plantData}/>
          :
          null
        }
