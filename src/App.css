@@ -248,6 +248,9 @@
   width: 80%;
   padding: 20px;
   margin: 10px;
+  flex-wrap: wrap;
+  align-content: stretch;
+  flex-direction: column;
 
 }
 
