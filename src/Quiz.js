@@ -52,6 +52,8 @@ class Quiz extends React.Component {
           })
         })
 
+
+        //frost_free_days_minimum
         let frostFreeDays = Number(this.state.frostFree.answer)
         console.log("frostFreeDays", frostFreeDays)
 
@@ -63,6 +65,8 @@ class Quiz extends React.Component {
             })
           })
   }
+
+
 
   answerSubmit = (event) => {
     event.preventDefault();
@@ -91,6 +95,7 @@ class Quiz extends React.Component {
       <>
       <div className="QuizContainer">
       <h3>Let's find your next garden addition!</h3>
+      <p>Please note that results given should still be researched for further consideration, as the API used for plant data does have incomplete and inconsistent data.</p>
         <form onSubmit={this.answerSubmit}>
          <p>1. {this.state.zipcode.question}
            <input
